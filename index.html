@@ -1,93 +1,124 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>리니지m</title>
+    <meta
+      name="description"
+      content="리니지의 최신 소식과 업데이트 안내를 만나보세요."
+    />
+    <title>리니지/ 소식</title>
+    <link rel="icon" href="assets/logo.png" />
+    <link rel="stylesheet" href=".css" />
   </head>
-  <body>
-    <header>
-      <div>
-        <a href="/index.html"><icon class="png"></icon></a>
-        <nav>
-          <a href="/">소식</a>
-          <a href="/">직업</a>
-          <a href="/">정보</a>
-          <a href="/">소통</a>
-          <a href="/">세계관</a>
-          <a href="/">상점</a>
-        </nav>
-      </div>
-      <button>다운로드</button>
-      <div>
-        <a href="/">로그인</a>
-        <a href="/index.html"><icon class="profil"></icon></a>
+  <body class="page">
+    <a class="skip-link" href="#news">최신뉴스 바로가기</a>
+
+    <header class="header">
+      <a class="logo" href="index.html" aria-label="리니지 홈">
+        <img class="logo-image" src="assets/logo.png" alt="리니지" />
+      </a>
+
+      <nav class="navigation" aria-label="주 메뉴">
+        <ul class="nav-list">
+          <li>
+            <a class="nav-link active" href="index.html" aria-current="page"
+              >소식</a
+            >
+          </li>
+          <li><span class="nav-link">직업</span></li>
+          <li><span class="nav-link">정보▼</span></li>
+          <li><span class="nav-link">소통</span></li>
+          <li><span class="nav-link">세계관</span></li>
+          <li><span class="nav-link">상점</span></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="login-button" type="button">로그인</button>
+        <img
+          class="profile-image"
+          src="assets/profile.png"
+          alt="사용자 프로필"
+        />
+        <button class="download-button" type="button">다운로드</button>
       </div>
     </header>
 
-    <section class="news">
-      <div class="news-banner">
-        <img src="images/news-banner.jpg" alt="리니지W 업데이트 소식" />
+    <main class="main">
+      <div class="section-heading">
+        <img
+          class="heading-line heading-line-left"
+          src="assets/title-left.png"
+          alt=""
+        />
+        <h1 class="page-title">소식</h1>
+        <img
+          class="heading-line heading-line-right"
+          src="assets/title-right.png"
+          alt=""
+        />
       </div>
-      <h1>소식</h1>
 
-      <div class="news-content">
-        <h3>최신뉴스</h3>
+      <section class="news-card" id="news" aria-labelledby="news-title">
+        <div class="featured">
+          <img
+            class="featured-image"
+            src="assets/news-feature.png"
+            alt="Lineage W"
+          />
+          <img
+            class="slide-indicators"
+            src="assets/slide-indicators.svg"
+            alt="첫 번째 이미지"
+          />
+        </div>
 
-        <ul class="news-list">
-          <li>
-            <a href="#">
-              <span class="news-title">
-                엘레나 지역 신규 업데이트 - 버전 프리뷰
-              </span>
-              <time datetime="2026-09-01">2026년 9월 1일</time>
-            </a>
-          </li>
-
-          <li>
-            <a href="#">
-              <span class="news-feed"> 신서버 ‘가헤티’ 사전예약 오픈 </span>
-              <time datetime="2026-08-26">2026년 8월 26일</time>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <span class="news-feed"> 9월 월페이퍼 사전배포 안내 </span>
-              <time datetime="2026-08-22">2026년 8월 22일</time>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <span class="news-feed"> 불법 비인가 사용 프로그램 적발 </span>
-              <time datetime="2026-08-17">2026년 8월 17일</time>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <span class="news-feed">
-                신규 클레스 ‘성기사’ 사전예약 시작안내
-              </span>
-              <time datetime="2026-08-01">2026년 8월 01일</time>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <span class="news-feed"> 6.7버젼 특별방송 사전예고 </span>
-              <time datetime="2026-07-29">2026년 7월 29일</time>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <span class="news-feed">
-                「잊혀진 섬」6.7버젼 유저참여 이벤트 개최
-              </span>
-              <time datetime="2026-07-19">2026년 7월 19일</time>
-            </a>
-          </li>
-        </ul>
-
-        <a class="more-link" href="#"> 더보기</a>
-      </div>
-    </section>
+        <div class="news-content">
+          <h2 class="news-heading" id="news-title">최신뉴스</h2>
+          <ul class="news-list">
+            <li class="news-item">
+              <a
+                href="https://lineage.plaync.com/board/notice/view?articleId=6aa14d86d97eae18cc40de87"
+                class="news-text"
+              >
+                엘레나 지역 신규 업데이트- 버젼 프리뷰/ 미리보기
+              </a>
+              <time class="news-date" datetime="2026-09-01">2026년9월01일</time>
+            </li>
+            <li class="news-item">
+              <a class="news-text">신서버 ‘가헤테 ‘ 사전예약 오픈</a>
+              <time class="news-date" datetime="2026-08-26">2026년8월26일</time>
+            </li>
+            <li class="news-item">
+              <a class="news-text">9월 월페이퍼 사전배포 안내</a>
+              <time class="news-date" datetime="2026-08-22">2026년8월22일</time>
+            </li>
+            <li class="news-item">
+              <a class="news-text">불법비인가 프로그램 사용 적발 안내</a>
+              <time class="news-date" datetime="2026-08-17">2026년8월17일</time>
+            </li>
+            <li class="news-item">
+              <a class="news-text">신규 클레스 ‘성기사’ 사전예약 시작안내</a>
+              <time class="news-date" datetime="2026-08-01">2026년8월01일</time>
+            </li>
+            <li class="news-item">
+              <a class="news-text">6.7버젼 특별방송 사전예고</a>
+              <time class="news-date" datetime="2026-07-29">2026년7월29일</time>
+            </li>
+            <li class="news-item">
+              <a class="news-text">「잊혀진 섬」6.7버젼 유저참여 이벤트 개최</a>
+              <time class="news-date" datetime="2026-07-19">2026년7월19일</time>
+            </li>
+          </ul>
+          <button class="more-button" type="button">
+            <span class="more-icon"
+              ><img class="more-image" src="assets/more.png" alt=""
+            /></span>
+            <span>더보기</span>
+          </button>
+        </div>
+      </section>
+    </main>
   </body>
 </html>
