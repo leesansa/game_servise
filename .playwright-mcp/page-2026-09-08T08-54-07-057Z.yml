@@ -1,0 +1,23 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link:
+        - /url: /index.html
+      - navigation [ref=e4]:
+        - link "소식" [ref=e5] [cursor=pointer]:
+          - /url: /
+        - link "직업" [ref=e6] [cursor=pointer]:
+          - /url: /
+        - link "정보" [ref=e7] [cursor=pointer]:
+          - /url: /
+        - link "소통" [ref=e8] [cursor=pointer]:
+          - /url: /
+        - link "세계관" [ref=e9] [cursor=pointer]:
+          - /url: /
+        - link "상점" [ref=e10] [cursor=pointer]:
+          - /url: /
+    - button "다운로드" [ref=e11]
+  - heading "소식" [level=1] [ref=e12]
+  - list [ref=e14]:
+    - listitem [ref=e15]: 최신뉴스
+    - text: 엘레나 지역 신규 업데이트- 버젼 프리뷰/ 미리보기 신서버 ‘가헤테 ‘ 사전예약 오픈 리니지M, 2024년 1월 17일 업데이트 안내
