@@ -108,9 +108,77 @@ a:focus-visible {
   line-height: 18px;
   white-space: nowrap;
 }
-
+.nav-link {
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.nav-link:hover {
+  color: #80e5ff;
+}
+.nav-link:active {
+  color: #80e5ff;
+}
+.nav-link:focus-visible {
+  outline: 2px solid #80e5ff;
+  outline-offset: 4px;
+}
 .active {
   text-shadow: 0 0 4px #05d9ff;
+}
+/* 정보히든카드 */
+.nav-item-information {
+  position: relative;
+}
+
+.information-card {
+  position: absolute;
+  z-index: 10;
+  top: 100%;
+  left: 50%;
+  width: min(170px, calc(100vw - 32px));
+  aspect-ratio: 168 / 213;
+  background: #181b2a;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateX(-50%);
+  transition:
+    opacity 0.2s ease,
+    visibility 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.information-card img {
+  width: 100%;
+  height: auto;
+}
+.information-link {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  padding: 0 20px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.information-link:hover,
+.information-link:focus-visible {
+  background-color: #32394f;
+}
+.nav-item-information:hover .information-card,
+.nav-item-information:has(> .nav-link:focus-visible) .information-card {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .information-card {
+    transition: none;
+  }
 }
 
 .active::before {
@@ -138,8 +206,12 @@ a:focus-visible {
   background: #1d2a5d;
   font-size: 14px;
   font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }
-
+.login-button:hover {
+  background-color: #9a9bdd;
+}
 .profile-image {
   width: 36px;
   height: 37px;
@@ -155,13 +227,19 @@ a:focus-visible {
   background: #eea300;
   font-size: 24px;
   font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.download-button:hover {
+  background-color: #d69100;
 }
 
 /* 소식 제목 */
 .main {
   width: min(1132px, calc(100% - 64px));
-  margin: 159px auto 0;
-  padding-bottom: 177px;
+  margin: 170px auto 0;
+  padding-bottom: 170px;
 }
 
 .section-heading {
@@ -179,11 +257,11 @@ a:focus-visible {
 }
 
 .heading-line-left {
-  width: 249px;
+  width: 260px;
 }
 
 .heading-line-right {
-  width: 259px;
+  width: 260px;
 }
 
 .page-title {
@@ -204,13 +282,29 @@ a:focus-visible {
   border-radius: 20px;
   background: rgba(0, 0, 0, 0.32);
 }
-
 .featured {
   position: relative;
   min-height: 522px;
   overflow: hidden;
 }
-
+/* 뉴스카드 이미지 */
+.featured-track {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  transform: translateX(0);
+  transition: transform 1s ease-in-out;
+}
+.featured-track.is-resetting {
+  transition: none;
+}
+.featured-slide {
+  position: relative;
+  flex: 0 0 100%;
+  min-width: 0;
+  height: 100%;
+  overflow: hidden;
+}
 .featured-image {
   position: absolute;
   top: -3px;
@@ -218,17 +312,63 @@ a:focus-visible {
   width: 202%;
   height: calc(100% + 6px);
   object-fit: cover;
-}
 
+  opacity: 1;
+  animation: none;
+}
 .slide-indicators {
   position: absolute;
+  z-index: 1;
   bottom: 15px;
   left: 50%;
-  width: 143px;
-  height: 14px;
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 10px;
+  background: rgba(16, 25, 57, 0.8);
   transform: translateX(-50%);
 }
-
+.slide-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  width: 44px;
+  height: 44px;
+  border-radius: 6px;
+  color: #fff;
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.slide-button:hover,
+.slide-button[aria-current="true"] {
+  background: rgba(255, 255, 255, 0.16);
+}
+.slide-button:focus-visible {
+  outline: 2px solid #80e5ff;
+  outline-offset: 1px;
+}
+.slide-dot {
+  width: 14px;
+  height: 14px;
+  background: url("assets/img_slide.png") -24px 0 / auto no-repeat;
+}
+.slide-button[aria-current="true"] .slide-dot {
+  background-position: 0 0;
+}
+.slide-number {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 15px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .featured-track,
+  .slide-button {
+    transition: none;
+  }
+}
 .news-content {
   min-width: 0;
   padding: 22px 0 23px;
@@ -300,6 +440,7 @@ a:focus-visible {
   background: transparent;
   font-size: 20px;
   line-height: 26px;
+  cursor: pointer;
 }
 
 .more-icon {
@@ -308,55 +449,49 @@ a:focus-visible {
   width: 30px;
   height: 30px;
   border: 2px solid rgba(255, 255, 255, 0.48);
+  cursor: pointer;
 }
 
 .more-image {
   width: 22px;
   height: 22px;
   object-fit: cover;
+  cursor: pointer;
 }
 
 @media (max-width: 1200px) {
   .navigation {
     margin-left: 36px;
   }
-
   .nav-list {
     gap: 32px;
   }
-
   .header-actions {
     gap: 14px;
   }
-
   .download-button {
     width: 150px;
     margin-left: 0;
     font-size: 22px;
   }
-
   .section-heading {
     width: 82%;
     margin-left: 11%;
   }
-
   .heading-line {
     width: 28%;
     height: auto;
     aspect-ratio: 161 / 11;
   }
-
   .news-card {
     grid-template-columns: 42% minmax(0, 1fr);
     padding-right: 24px;
   }
-
   .news-item {
     grid-template-columns: 1fr;
     gap: 4px;
     padding: 12px 8px;
   }
-
   .news-date {
     justify-self: end;
     margin-bottom: 0;
@@ -367,95 +502,77 @@ a:focus-visible {
   .page {
     min-height: 100vh;
   }
-
   .header {
     flex-wrap: wrap;
     height: auto;
   }
-
   .logo {
     flex-basis: 52px;
     margin: 6px 0 6px 12px;
   }
-
   .logo-image {
     width: 52px;
     height: 52px;
   }
-
   .navigation {
     order: 1;
     width: 100%;
     margin: 0;
     padding: 0 16px;
   }
-
   .nav-list {
     justify-content: space-between;
     gap: 12px;
   }
-
   .nav-link {
     height: 52px;
     padding-top: 18px;
   }
-
   .active::before {
     height: 4px;
   }
-
   .header-actions {
     gap: 12px;
     height: 64px;
   }
-
   .profile-image {
     width: 28px;
     height: 29px;
   }
-
   .download-button {
     width: 112px;
     height: 64px;
     font-size: 18px;
   }
-
   .main {
     width: calc(100% - 32px);
     margin-top: 56px;
     padding-bottom: 64px;
   }
-
   .section-heading {
     width: 100%;
     height: 64px;
     margin: 0 0 20px;
   }
-
   .page-title {
     font-size: 42px;
     line-height: 64px;
   }
-
   .news-card {
     grid-template-columns: 1fr;
     gap: 0;
     padding-right: 0;
   }
-
   .featured {
     min-height: 0;
     aspect-ratio: 476 / 522;
   }
-
   .news-content {
     padding: 22px 20px 24px;
   }
-
   .news-heading {
     font-size: 28px;
   }
-
   .news-text {
     overflow-wrap: anywhere;
   }
