@@ -1,0 +1,462 @@
+* {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+p,
+ul {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+button,
+a {
+  color: inherit;
+  font: inherit;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  padding: 0;
+  border: 0;
+}
+
+img {
+  display: block;
+}
+
+.page {
+  min-height: 1024px;
+  color: #fff;
+  font-family: "IBM Plex Mono", "Malgun Gothic", "맑은 고딕", sans-serif;
+  background-color: #101939;
+  background-image:
+    url("assets/background.png"), url("assets/base-background.png");
+  background-repeat: no-repeat;
+  background-size:
+    3840px 2160px,
+    1820px 1024px;
+  background-position:
+    calc(50% + 166px) -136px,
+    calc(50% + 161px) top;
+}
+
+.skip-link {
+  position: absolute;
+  top: -60px;
+  left: 16px;
+  z-index: 10;
+  padding: 12px 20px;
+  color: #080b1c;
+  background: #fff;
+}
+
+.skip-link:focus {
+  top: 12px;
+}
+
+a:focus-visible {
+  outline: 2px solid #05d9ff;
+  outline-offset: 4px;
+}
+
+/* 상단 메뉴 */
+.header {
+  display: flex;
+  align-items: center;
+  height: 75px;
+  background: rgba(0, 0, 0, 0.48);
+  box-shadow: 0 4px 4px 2px rgba(0, 0, 0, 0.24);
+}
+
+.logo {
+  flex: 0 0 66px;
+  margin-left: 8px;
+}
+
+.logo-image {
+  width: 66px;
+  height: 66px;
+  object-fit: cover;
+}
+
+.navigation {
+  margin-left: 71px;
+}
+
+.nav-list {
+  display: flex;
+  gap: 69px;
+}
+
+.nav-link {
+  position: relative;
+  display: block;
+  height: 75px;
+  padding-top: 25px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+  white-space: nowrap;
+}
+
+.active {
+  text-shadow: 0 0 4px #05d9ff;
+}
+
+.active::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 29px;
+  height: 8px;
+  background: #05d9ff;
+  content: "";
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 19px;
+  height: 100%;
+  margin-left: auto;
+}
+
+.login-button {
+  width: 62px;
+  height: 26px;
+  border-radius: 10px;
+  background: #1d2a5d;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.profile-image {
+  width: 36px;
+  height: 37px;
+  object-fit: cover;
+}
+
+.download-button {
+  align-self: flex-start;
+  width: 190px;
+  height: 71px;
+  margin-left: 7px;
+  color: #000;
+  background: #eea300;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+/* 소식 제목 */
+.main {
+  width: min(1132px, calc(100% - 64px));
+  margin: 159px auto 0;
+  padding-bottom: 177px;
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 920px;
+  height: 83px;
+  margin: 0 0 8px 128px;
+}
+
+.heading-line {
+  height: 18px;
+  object-fit: cover;
+}
+
+.heading-line-left {
+  width: 249px;
+}
+
+.heading-line-right {
+  width: 259px;
+}
+
+.page-title {
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 83px;
+  white-space: nowrap;
+}
+
+/* 뉴스 카드 */
+.news-card {
+  display: grid;
+  grid-template-columns: 476px minmax(0, 1fr);
+  gap: 19px;
+  min-height: 522px;
+  padding-right: 46px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.32);
+}
+
+.featured {
+  position: relative;
+  min-height: 522px;
+  overflow: hidden;
+}
+
+.featured-image {
+  position: absolute;
+  top: -3px;
+  left: -51.07%;
+  width: 202%;
+  height: calc(100% + 6px);
+  object-fit: cover;
+}
+
+.slide-indicators {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  width: 143px;
+  height: 14px;
+  transform: translateX(-50%);
+}
+
+.news-content {
+  min-width: 0;
+  padding: 22px 0 23px;
+}
+
+.news-heading {
+  position: relative;
+  margin-left: 5px;
+  color: #eea300;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 42px;
+}
+
+.news-heading::after {
+  position: absolute;
+  bottom: -10px;
+  left: -5px;
+  width: 86px;
+  height: 10px;
+  background: #eea300;
+  content: "";
+}
+
+.news-list {
+  margin-top: 9px;
+  padding-top: 2px;
+  background: url("assets/news-divider.svg") left top / 100% 2px no-repeat;
+}
+
+.news-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+  min-height: 53px;
+  padding: 0 9px;
+  background: url("assets/news-divider.svg") left bottom / 100% 2px no-repeat;
+}
+
+.news-item:first-child,
+.news-item:nth-child(6) {
+  min-height: 54px;
+}
+
+.news-text {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 21px;
+  word-break: keep-all;
+}
+
+.news-date {
+  align-self: end;
+  margin-bottom: 11px;
+  color: #a1a1a1;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  white-space: nowrap;
+}
+
+.more-button {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  height: 30px;
+  margin: 21px 0 0 auto;
+  background: transparent;
+  font-size: 20px;
+  line-height: 26px;
+}
+
+.more-icon {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border: 2px solid rgba(255, 255, 255, 0.48);
+}
+
+.more-image {
+  width: 22px;
+  height: 22px;
+  object-fit: cover;
+}
+
+@media (max-width: 1200px) {
+  .navigation {
+    margin-left: 36px;
+  }
+
+  .nav-list {
+    gap: 32px;
+  }
+
+  .header-actions {
+    gap: 14px;
+  }
+
+  .download-button {
+    width: 150px;
+    margin-left: 0;
+    font-size: 22px;
+  }
+
+  .section-heading {
+    width: 82%;
+    margin-left: 11%;
+  }
+
+  .heading-line {
+    width: 28%;
+    height: auto;
+    aspect-ratio: 161 / 11;
+  }
+
+  .news-card {
+    grid-template-columns: 42% minmax(0, 1fr);
+    padding-right: 24px;
+  }
+
+  .news-item {
+    grid-template-columns: 1fr;
+    gap: 4px;
+    padding: 12px 8px;
+  }
+
+  .news-date {
+    justify-self: end;
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 800px) {
+  .page {
+    min-height: 100vh;
+  }
+
+  .header {
+    flex-wrap: wrap;
+    height: auto;
+  }
+
+  .logo {
+    flex-basis: 52px;
+    margin: 6px 0 6px 12px;
+  }
+
+  .logo-image {
+    width: 52px;
+    height: 52px;
+  }
+
+  .navigation {
+    order: 1;
+    width: 100%;
+    margin: 0;
+    padding: 0 16px;
+  }
+
+  .nav-list {
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .nav-link {
+    height: 52px;
+    padding-top: 18px;
+  }
+
+  .active::before {
+    height: 4px;
+  }
+
+  .header-actions {
+    gap: 12px;
+    height: 64px;
+  }
+
+  .profile-image {
+    width: 28px;
+    height: 29px;
+  }
+
+  .download-button {
+    width: 112px;
+    height: 64px;
+    font-size: 18px;
+  }
+
+  .main {
+    width: calc(100% - 32px);
+    margin-top: 56px;
+    padding-bottom: 64px;
+  }
+
+  .section-heading {
+    width: 100%;
+    height: 64px;
+    margin: 0 0 20px;
+  }
+
+  .page-title {
+    font-size: 42px;
+    line-height: 64px;
+  }
+
+  .news-card {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding-right: 0;
+  }
+
+  .featured {
+    min-height: 0;
+    aspect-ratio: 476 / 522;
+  }
+
+  .news-content {
+    padding: 22px 20px 24px;
+  }
+
+  .news-heading {
+    font-size: 28px;
+  }
+
+  .news-text {
+    overflow-wrap: anywhere;
+  }
+}
