@@ -9,7 +9,8 @@
     />
     <title>리니지/ 소식</title>
     <link rel="icon" href="assets/logo.png" />
-    <link rel="stylesheet" href=".css" />
+    <link rel="stylesheet" href="./index.css" />
+    <script src="./slideshow.js" defer></script>
   </head>
   <body class="page">
     <a class="skip-link" href="#news">최신뉴스 바로가기</a>
@@ -26,11 +27,22 @@
               >소식</a
             >
           </li>
-          <li><span class="nav-link">직업</span></li>
-          <li><span class="nav-link">정보▼</span></li>
-          <li><span class="nav-link">소통</span></li>
-          <li><span class="nav-link">세계관</span></li>
-          <li><span class="nav-link">상점</span></li>
+          <li><a class="nav-link" href="job.html">직업</a></li>
+          <li class="nav-item-information">
+            <a class="nav-link" href="info.html">정보▼</a>
+
+            <!-- 히든카드 부분 -->
+
+            <div class="information-card">
+              <a href="contents.html" class="information-link">콘텐츠</a>
+              <a href="region.html" class="information-link">지역</a>
+              <a href="siege.html" class="information-link">공성전</a>
+              <a href="media.html" class="information-link">미디어</a>
+            </div>
+          </li>
+          <li><a class="nav-link" href="community.html">소통</a></li>
+          <li><a class="nav-link" href="world.html">세계관</a></li>
+          <li><a class="nav-link" href="shop.html">상점</a></li>
         </ul>
       </nav>
 
@@ -41,7 +53,13 @@
           src="assets/profile.png"
           alt="사용자 프로필"
         />
-        <button class="download-button" type="button">다운로드</button>
+        <button
+          class="download-button"
+          type="button"
+          onclick="location.href = 'https://lineage.plaync.com/download/index'"
+        >
+          다운로드
+        </button>
       </div>
     </header>
 
@@ -60,18 +78,75 @@
         />
       </div>
 
+      <!-- 뉴스카드 이미지 -->
       <section class="news-card" id="news" aria-labelledby="news-title">
-        <div class="featured">
-          <img
-            class="featured-image"
-            src="assets/news-feature.png"
-            alt="Lineage W"
-          />
-          <img
-            class="slide-indicators"
-            src="assets/slide-indicators.svg"
-            alt="첫 번째 이미지"
-          />
+        <div class="featured" role="region" aria-label="주요 소식 슬라이드">
+          <div class="featured-track">
+            <div class="featured-slide" id="featured-slide-1">
+              <img
+                class="featured-image"
+                src="assets/news-feature(1).png"
+                alt="첫 번째 소식"
+              />
+            </div>
+
+            <div class="featured-slide" id="featured-slide-2" aria-hidden="true">
+              <img
+                class="featured-image"
+                src="assets/news-feature(2).jpg"
+                alt="두 번째 소식"
+              />
+            </div>
+
+            <div class="featured-slide" id="featured-slide-3" aria-hidden="true">
+              <img
+                class="featured-image"
+                src="assets/news-feature(3).jpg"
+                alt="세 번째 소식"
+              />
+            </div>
+
+            <!-- 처음으로 자연스럽게 이어지도록 첫 이미지를 한 번 더 배치 -->
+            <div class="featured-slide" data-clone aria-hidden="true">
+              <img
+                class="featured-image"
+                src="assets/news-feature(1).png"
+                alt=""
+              />
+            </div>
+          </div>
+          <div class="slide-indicators" role="group" aria-label="슬라이드 선택">
+            <button
+              class="slide-button"
+              type="button"
+              aria-label="1번 슬라이드 보기"
+              aria-controls="featured-slide-1"
+              aria-current="true"
+            >
+              <span class="slide-dot" aria-hidden="true"></span>
+              <span class="slide-number" aria-hidden="true">1</span>
+            </button>
+            <button
+              class="slide-button"
+              type="button"
+              aria-label="2번 슬라이드 보기"
+              aria-controls="featured-slide-2"
+              aria-current="false"
+            >
+              <span class="slide-dot" aria-hidden="true"></span>
+              <span class="slide-number" aria-hidden="true">2</span>
+            </button>
+            <button
+              class="slide-button"
+              type="button"
+              aria-label="3번 슬라이드 보기"
+              aria-controls="featured-slide-3"
+              aria-current="false"
+            >
+              <span class="slide-dot" aria-hidden="true"></span>
+              <span class="slide-number" aria-hidden="true">3</span>
+            </button>
+          </div>
         </div>
 
         <div class="news-content">
@@ -87,31 +162,61 @@
               <time class="news-date" datetime="2026-09-01">2026년9월01일</time>
             </li>
             <li class="news-item">
-              <a class="news-text">신서버 ‘가헤테 ‘ 사전예약 오픈</a>
+              <a
+                href="https://lineage.plaync.com/board/notice/view?articleId=6aa14d86d97eae18cc40de87"
+                class="news-text"
+                >신서버 ‘가헤테 ‘ 사전예약 오픈</a
+              >
               <time class="news-date" datetime="2026-08-26">2026년8월26일</time>
             </li>
             <li class="news-item">
-              <a class="news-text">9월 월페이퍼 사전배포 안내</a>
+              <a
+                href="https://lineage.plaync.com/board/notice/view?articleId=6aa14d86d97eae18cc40de87"
+                class="news-text"
+                >9월 월페이퍼 사전배포 안내</a
+              >
               <time class="news-date" datetime="2026-08-22">2026년8월22일</time>
             </li>
             <li class="news-item">
-              <a class="news-text">불법비인가 프로그램 사용 적발 안내</a>
+              <a
+                href="https://lineage.plaync.com/board/notice/view?articleId=6aa14d86d97eae18cc40de87"
+                class="news-text"
+                >불법비인가 프로그램 사용 적발 안내</a
+              >
               <time class="news-date" datetime="2026-08-17">2026년8월17일</time>
             </li>
             <li class="news-item">
-              <a class="news-text">신규 클레스 ‘성기사’ 사전예약 시작안내</a>
+              <a
+                href="https://lineage.plaync.com/board/notice/view?articleId=6aa14d86d97eae18cc40de87"
+                class="news-text"
+                >신규 클레스 ‘성기사’ 사전예약 시작안내</a
+              >
               <time class="news-date" datetime="2026-08-01">2026년8월01일</time>
             </li>
             <li class="news-item">
-              <a class="news-text">6.7버젼 특별방송 사전예고</a>
+              <a
+                href="https://lineage.plaync.com/board/notice/view?articleId=6aa14d86d97eae18cc40de87"
+                class="news-text"
+                >6.7버젼 특별방송 사전예고</a
+              >
               <time class="news-date" datetime="2026-07-29">2026년7월29일</time>
             </li>
             <li class="news-item">
-              <a class="news-text">「잊혀진 섬」6.7버젼 유저참여 이벤트 개최</a>
+              <a
+                href="https://lineage.plaync.com/board/notice/view?articleId=6aa14d86d97eae18cc40de87"
+                class="news-text"
+                >「잊혀진 섬」6.7버젼 유저참여 이벤트 개최</a
+              >
               <time class="news-date" datetime="2026-07-19">2026년7월19일</time>
             </li>
           </ul>
-          <button class="more-button" type="button">
+          <button
+            class="more-button"
+            type="button"
+            onclick="
+              location.href = 'https://lineage.plaync.com/board/notice/list'
+            "
+          >
             <span class="more-icon"
               ><img class="more-image" src="assets/more.png" alt=""
             /></span>
