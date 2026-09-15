@@ -10,7 +10,6 @@
     <title>리니지/ 소식</title>
     <link rel="icon" href="assets/logo.png" />
     <link rel="stylesheet" href="./index.css" />
-    <script src="./slideshow.js" defer></script>
   </head>
   <body class="page">
     <a class="skip-link" href="#news">최신뉴스 바로가기</a>
@@ -53,13 +52,12 @@
           src="assets/profile.png"
           alt="사용자 프로필"
         />
-        <button
+        <a
           class="download-button"
-          type="button"
-          onclick="location.href = 'https://lineage.plaync.com/download/index'"
+          href="https://lineage.plaync.com/download/index"
         >
           다운로드
-        </button>
+        </a>
       </div>
     </header>
 
@@ -90,7 +88,7 @@
               />
             </div>
 
-            <div class="featured-slide" id="featured-slide-2" aria-hidden="true">
+            <div class="featured-slide" id="featured-slide-2">
               <img
                 class="featured-image"
                 src="assets/news-feature(2).jpg"
@@ -98,16 +96,30 @@
               />
             </div>
 
-            <div class="featured-slide" id="featured-slide-3" aria-hidden="true">
+            <div class="featured-slide" id="featured-slide-3">
               <img
                 class="featured-image"
                 src="assets/news-feature(3).jpg"
                 alt="세 번째 소식"
               />
             </div>
+            <div class="featured-slide" id="featured-slide-4">
+              <img
+                class="featured-image"
+                src="assets/news-feature(4).jpg"
+                alt="네 번째 소식"
+              />
+            </div>
+            <div class="featured-slide" id="featured-slide-5">
+              <img
+                class="featured-image"
+                src="assets/news-feature(5).jpg"
+                alt="다섯 번째 소식"
+              />
+            </div>
 
-            <!-- 처음으로 자연스럽게 이어지도록 첫 이미지를 한 번 더 배치 -->
-            <div class="featured-slide" data-clone aria-hidden="true">
+            <!-- 마지막 장 다음에도 왼쪽으로 이어지도록 첫 이미지를 복제합니다. -->
+            <div class="featured-slide" aria-hidden="true">
               <img
                 class="featured-image"
                 src="assets/news-feature(1).png"
@@ -115,37 +127,61 @@
               />
             </div>
           </div>
-          <div class="slide-indicators" role="group" aria-label="슬라이드 선택">
-            <button
-              class="slide-button"
-              type="button"
-              aria-label="1번 슬라이드 보기"
+
+          <div
+            class="featured-controls"
+            role="group"
+            aria-label="소식 슬라이드 조작"
+          >
+            <input
+              class="featured-mode"
+              type="radio"
+              name="featured-mode"
+              id="featured-select-1"
               aria-controls="featured-slide-1"
-              aria-current="true"
-            >
-              <span class="slide-dot" aria-hidden="true"></span>
-              <span class="slide-number" aria-hidden="true">1</span>
-            </button>
-            <button
-              class="slide-button"
-              type="button"
-              aria-label="2번 슬라이드 보기"
+              aria-label="1번 소식 보기"
+            />
+            <label class="featured-control" for="featured-select-1"></label>
+            <input
+              class="featured-mode"
+              type="radio"
+              name="featured-mode"
+              id="featured-select-2"
               aria-controls="featured-slide-2"
-              aria-current="false"
-            >
-              <span class="slide-dot" aria-hidden="true"></span>
-              <span class="slide-number" aria-hidden="true">2</span>
-            </button>
-            <button
-              class="slide-button"
-              type="button"
-              aria-label="3번 슬라이드 보기"
+              aria-label="2번 소식 보기"
+            />
+            <label class="featured-control" for="featured-select-2"></label>
+            <input
+              class="featured-mode"
+              type="radio"
+              name="featured-mode"
+              id="featured-select-3"
               aria-controls="featured-slide-3"
-              aria-current="false"
-            >
-              <span class="slide-dot" aria-hidden="true"></span>
-              <span class="slide-number" aria-hidden="true">3</span>
-            </button>
+              aria-label="3번 소식 보기"
+            />
+            <label class="featured-control" for="featured-select-3"></label>
+            <input
+              class="featured-mode"
+              type="radio"
+              name="featured-mode"
+              id="featured-select-4"
+              aria-controls="featured-slide-4"
+              aria-label="4번 소식 보기"
+            />
+            <label class="featured-control" for="featured-select-4"></label>
+            <input
+              class="featured-mode"
+              type="radio"
+              name="featured-mode"
+              id="featured-select-5"
+              aria-controls="featured-slide-5"
+              aria-label="5번 소식 보기"
+            />
+            <label class="featured-control" for="featured-select-5"></label>
+            <!-- <label class="featured-pause-label">
+              <input class="featured-pause" type="checkbox" />
+              일시정지
+            </label> -->
           </div>
         </div>
 
@@ -210,18 +246,15 @@
               <time class="news-date" datetime="2026-07-19">2026년7월19일</time>
             </li>
           </ul>
-          <button
+          <a
             class="more-button"
-            type="button"
-            onclick="
-              location.href = 'https://lineage.plaync.com/board/notice/list'
-            "
+            href="https://lineage.plaync.com/board/notice/list"
           >
             <span class="more-icon"
               ><img class="more-image" src="assets/more.png" alt=""
             /></span>
             <span>더보기</span>
-          </button>
+          </a>
         </div>
       </section>
     </main>
