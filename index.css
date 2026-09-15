@@ -219,6 +219,9 @@ a:focus-visible {
 }
 
 .download-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   align-self: flex-start;
   width: 190px;
   height: 71px;
@@ -283,6 +286,7 @@ a:focus-visible {
   background: rgba(0, 0, 0, 0.32);
 }
 .featured {
+  --selected-slide: 0%;
   position: relative;
   min-height: 522px;
   overflow: hidden;
@@ -293,10 +297,59 @@ a:focus-visible {
   inset: 0;
   display: flex;
   transform: translateX(0);
-  transition: transform 1s ease-in-out;
+  /* 5장 × (4초 표시 + 1초 이동) = 한 바퀴 25초 */
+  animation: featured-slideshow 25s ease-in-out infinite;
 }
-.featured-track.is-resetting {
-  transition: none;
+@keyframes featured-slideshow {
+  0%,
+  16% {
+    transform: translateX(0);
+  }
+  20%,
+  36% {
+    transform: translateX(-100%);
+  }
+  40%,
+  56% {
+    transform: translateX(-200%);
+  }
+  60%,
+  76% {
+    transform: translateX(-300%);
+  }
+  80%,
+  96% {
+    transform: translateX(-400%);
+  }
+  100% {
+    transform: translateX(-500%);
+  }
+}
+/* 숫자를 선택하면 해당 이미지를 표시하고, '자동'을 선택하면 다시 반복합니다. */
+.featured:has(#featured-select-2:checked) {
+  --selected-slide: -100%;
+}
+.featured:has(#featured-select-3:checked) {
+  --selected-slide: -200%;
+}
+.featured:has(#featured-select-4:checked) {
+  --selected-slide: -300%;
+}
+.featured:has(#featured-select-5:checked) {
+  --selected-slide: -400%;
+}
+.featured:has(.featured-mode:checked:not(#featured-auto)) .featured-track {
+  animation: none;
+  transform: translateX(var(--selected-slide));
+}
+.featured:has(.featured-pause:checked) .featured-track,
+.featured:has(:focus-visible) .featured-track {
+  animation-play-state: paused;
+}
+@media (hover: hover) {
+  .featured:hover .featured-track {
+    animation-play-state: paused;
+  }
 }
 .featured-slide {
   position: relative;
@@ -316,56 +369,77 @@ a:focus-visible {
   opacity: 1;
   animation: none;
 }
-.slide-indicators {
+.featured-controls {
   position: absolute;
   z-index: 1;
-  bottom: 15px;
+  bottom: 16px;
   left: 50%;
   display: flex;
-  gap: 4px;
-  padding: 4px;
-  border-radius: 10px;
-  background: rgba(16, 25, 57, 0.8);
-  transform: translateX(-50%);
-}
-.slide-button {
-  display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 3px;
-  width: 44px;
-  height: 44px;
-  border-radius: 6px;
+  flex-wrap: wrap;
+  gap: 4px;
+  width: 240px;
+  max-width: calc(100% - 24px);
+  padding: 4px;
+  border-radius: 12px;
+  transform: translateX(-50%);
+}
+.featured-mode {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+.featured-control {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 32px;
+  height: 36px;
+  border-radius: 8px;
   color: #fff;
   background: transparent;
+  font-size: 13px;
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
-.slide-button:hover,
-.slide-button[aria-current="true"] {
-  background: rgba(255, 255, 255, 0.16);
+.featured-control::before {
+  content: "○";
 }
-.slide-button:focus-visible {
+/*
+.featured-control:hover,
+.featured-mode:checked + .featured-control {
+  background: rgba(255, 255, 255, 0.25);
+}*/
+.featured-mode:checked + .featured-control::before {
+  content: "●";
+}
+.featured-mode:focus-visible + .featured-control,
+.featured-pause:focus-visible {
   outline: 2px solid #80e5ff;
   outline-offset: 1px;
 }
-.slide-dot {
-  width: 14px;
-  height: 14px;
-  background: url("assets/img_slide.png") -24px 0 / auto no-repeat;
+.featured-pause-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  min-height: 28px;
+  font-size: 13px;
+  cursor: pointer;
 }
-.slide-button[aria-current="true"] .slide-dot {
-  background-position: 0 0;
-}
-.slide-number {
-  font-size: 12px;
-  font-weight: 600;
-  line-height: 15px;
+.featured-pause {
+  margin: 0;
+  accent-color: #80e5ff;
 }
 @media (prefers-reduced-motion: reduce) {
-  .featured-track,
-  .slide-button {
+  .featured-track {
+    animation: none;
+  }
+  .featured-control {
     transition: none;
   }
 }
@@ -436,7 +510,7 @@ a:focus-visible {
   align-items: center;
   gap: 11px;
   height: 30px;
-  margin: 21px 0 0 auto;
+  margin: 21px 0 0 480px;
   background: transparent;
   font-size: 20px;
   line-height: 26px;
