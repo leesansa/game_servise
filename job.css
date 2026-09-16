@@ -1,0 +1,572 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+h1,
+p,
+ol,
+ul {
+  margin: 0;
+}
+
+ol,
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+a,
+button {
+  color: inherit;
+  font: inherit;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  padding: 0;
+  border: 0;
+}
+
+img {
+  display: block;
+}
+
+.job-page {
+  min-width: 1024px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  color: #ffffff;
+  background: #160c08;
+  font-family: "IBM Plex Mono", "Malgun Gothic", "맑은 고딕", sans-serif;
+}
+
+.skip-link {
+  position: fixed;
+  top: -60px;
+  left: 16px;
+  z-index: 100;
+  padding: 12px 20px;
+  color: #080b1c;
+  background: #ffffff;
+}
+
+.skip-link:focus {
+  top: 12px;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #05d9ff;
+  outline-offset: 3px;
+}
+
+.job-stage {
+  position: relative;
+  width: 100%;
+  min-width: 1024px;
+  height: max(100vh, 1024px);
+  min-height: 1024px;
+  overflow: hidden;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)),
+    url("assets/job-background.png");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: auto 1024px;
+}
+
+.class-artwork {
+  position: absolute;
+  z-index: 2;
+  top: 75px;
+  left: calc(50% - 664px);
+  width: 1384px;
+  height: 949px;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+/* -----------------------------헤더 영역------------------------------------ */
+
+.header {
+  display: flex;
+  align-items: center;
+  height: 75px;
+  background: rgba(0, 0, 0, 0.48);
+  box-shadow: 0 4px 4px 2px rgba(0, 0, 0, 0.24);
+}
+
+.logo {
+  flex: 0 0 66px;
+  margin-left: 8px;
+}
+
+.logo-image {
+  width: 66px;
+  height: 66px;
+  object-fit: cover;
+}
+
+.navigation {
+  margin-left: 71px;
+}
+
+.nav-list {
+  display: flex;
+  gap: 69px;
+}
+
+.nav-link {
+  position: relative;
+  display: block;
+  height: 75px;
+  padding-top: 25px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+  white-space: nowrap;
+}
+.nav-link {
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.nav-link:hover {
+  color: #80e5ff;
+}
+.nav-link:active {
+  color: #80e5ff;
+}
+.nav-link:focus-visible {
+  outline: 2px solid #80e5ff;
+  outline-offset: 4px;
+}
+.active {
+  text-shadow: 0 0 4px #05d9ff;
+}
+/* 정보히든카드 */
+.nav-item-information {
+  position: relative;
+}
+
+.information-card {
+  position: absolute;
+  z-index: 10;
+  top: 100%;
+  left: 50%;
+  width: min(170px, calc(100vw - 32px));
+  aspect-ratio: 168 / 213;
+  background: #181b2a;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateX(-50%);
+  transition:
+    opacity 0.2s ease,
+    visibility 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.information-card img {
+  width: 100%;
+  height: auto;
+}
+.information-link {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  padding: 0 20px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.information-link:hover,
+.information-link:focus-visible {
+  background-color: #32394f;
+}
+.nav-item-information:hover .information-card,
+.nav-item-information:has(> .nav-link:focus-visible) .information-card {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .information-card {
+    transition: none;
+  }
+}
+
+.active::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 29px;
+  height: 8px;
+  background: #05d9ff;
+  content: "";
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 19px;
+  height: 100%;
+  margin-left: auto;
+}
+
+.login-button {
+  width: 62px;
+  height: 26px;
+  border-radius: 10px;
+  background: #1d2a5d;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.login-button:hover {
+  background-color: #9a9bdd;
+}
+.profile-image {
+  width: 36px;
+  height: 37px;
+  object-fit: cover;
+}
+
+.download-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  width: 190px;
+  height: 71px;
+  margin-left: 7px;
+  color: #000;
+  background: #eea300;
+  font-size: 24px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.download-button:hover {
+  background-color: #d69100;
+}
+/* -----------------------------헤더 영역------------------------------------ */
+
+/*------------------------------직업 목록------------------------------------*/
+.class-content {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  height: 1024px;
+}
+
+.class-navigation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 320px;
+  height: 1024px;
+}
+
+.class-timeline {
+  position: absolute;
+  top: 75px;
+  left: 59px;
+  width: 3px;
+  height: 949px;
+}
+
+.class-list {
+  --selected-index: 0;
+  --class-height: 47px;
+  --class-gap: 50px;
+  position: absolute;
+  z-index: 7;
+  top: 202px;
+  left: 32px;
+  width: 253px;
+}
+
+/* 선택된 라디오 버튼에 맞춰 하나의 배경 박스를 이동한다. */
+/* 직업선택 모션 */
+.class-list::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--class-height);
+  background: url("assets/job-selection.png") left top / 100% 100% no-repeat;
+  content: "";
+  pointer-events: none;
+  transform: translateY(
+    calc(var(--selected-index) * (var(--class-height) + var(--class-gap)))
+  );
+  transition: transform 0.3s ease;
+}
+
+.class-list:has(#class-knight:checked) {
+  --selected-index: 1;
+}
+
+.class-list:has(#class-mage:checked) {
+  --selected-index: 2;
+}
+
+.class-list:has(#class-elf:checked) {
+  --selected-index: 3;
+}
+
+.class-list:has(#class-dark-elf:checked) {
+  --selected-index: 4;
+}
+
+.class-list:has(#class-fighter:checked) {
+  --selected-index: 5;
+}
+
+.class-list:has(#class-dark-knight:checked) {
+  --selected-index: 6;
+}
+
+.class-list:has(#class-holy-knight:checked) {
+  --selected-index: 7;
+}
+
+.class-item {
+  position: relative;
+  height: var(--class-height);
+  margin-bottom: var(--class-gap);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 31px;
+  white-space: nowrap;
+}
+
+.class-item:last-child {
+  margin-bottom: 0;
+}
+
+/* 화면에서는 숨기되 키보드와 스크린 리더로 선택할 수 있게 유지한다. */
+.class-choice {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.class-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding-left: 51px;
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    text-shadow 0.2s ease;
+}
+
+.class-link:hover,
+.class-choice:checked + .class-link {
+  color: #80e5ff;
+  text-shadow: 0 0 6px rgba(5, 217, 255, 0.6);
+}
+
+.class-choice:focus-visible + .class-link {
+  outline: 2px solid #80e5ff;
+  outline-offset: 3px;
+}
+
+.class-mark {
+  position: absolute;
+  top: 50%;
+  left: 14px;
+  width: 9px;
+  height: 9px;
+  background: currentColor;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.class-choice:checked + .class-link .class-mark {
+  left: 9px;
+  width: 19px;
+  height: 19px;
+  border: 3px solid #ffffff;
+  background: transparent;
+  box-shadow: 0 0 4px #05d9ff;
+}
+
+.class-choice:checked + .class-link .class-mark::after {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 6px;
+  height: 6px;
+  background: #ffffff;
+  box-shadow: inset 0 0 2px #05d9ff;
+  content: "";
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .class-list::before,
+  .class-link {
+    transition: none;
+  }
+}
+/*------------------------------직업 목록------------------------------------*/
+
+/* 군주 소개 */
+.class-introduction {
+  position: absolute;
+  z-index: 6;
+  top: 362px;
+  left: 233px;
+  width: 525px;
+}
+
+.introduction-heading {
+  position: relative;
+  width: 390px;
+  height: 48px;
+  background: #bd9f77;
+}
+
+.introduction-heading::before {
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  width: 20px;
+  height: 11px;
+  background: url("assets/job-title-corner.svg") center / 20px 11px no-repeat;
+  content: "";
+  transform: rotate(-48deg);
+}
+
+.heading-diamond,
+.panel-diamond {
+  position: absolute;
+  border: 2px solid;
+  transform: rotate(45deg);
+}
+
+.heading-diamond {
+  top: 14px;
+  left: 40px;
+  width: 17px;
+  height: 17px;
+  border-color: #2e2d40;
+}
+
+.heading-diamond::after {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 7px;
+  height: 7px;
+  background: #2e2d40;
+  content: "";
+}
+
+.class-title {
+  position: absolute;
+  top: 8px;
+  left: 84px;
+  color: rgba(11, 16, 50, 0.8);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 31px;
+  white-space: nowrap;
+}
+
+.heading-arrow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 46px;
+  height: 48px;
+}
+
+.introduction-panel {
+  position: relative;
+  width: 525px;
+  height: 159px;
+  margin-top: 16px;
+  border: 4px solid rgba(255, 255, 255, 0.4);
+  background: rgba(33, 33, 33, 0.5);
+}
+
+.panel-diamond {
+  top: 14px;
+  left: 12px;
+  width: 17px;
+  height: 17px;
+  border-color: #ffffff;
+}
+
+.panel-diamond::after {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 7px;
+  height: 7px;
+  background: #ffffff;
+  content: "";
+}
+
+.class-description {
+  position: absolute;
+  top: 10px;
+  left: 48px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 21px;
+  white-space: nowrap;
+}
+
+@media (max-width: 1200px) {
+  .navigation {
+    left: 100px;
+  }
+
+  .nav-item {
+    margin-right: 34px;
+  }
+
+  .header-actions {
+    width: 280px;
+  }
+
+  .login-button {
+    right: 218px;
+  }
+
+  .profile-image {
+    right: 168px;
+  }
+
+  .download-button {
+    width: 145px;
+    font-size: 20px;
+  }
+}
+
+@media (max-height: 900px) and (min-width: 1024px) {
+  .job-stage {
+    height: 1024px;
+  }
+}
