@@ -297,7 +297,7 @@ button:focus-visible {
   width: 253px;
 }
 
-/* 선택된 라디오 버튼에 맞춰 하나의 배경 박스를 이동한다. */
+/* 선택된 버튼에 맞춰 하나의 배경 박스를 이동. */
 /* 직업선택 모션 */
 .class-list::before {
   position: absolute;
@@ -356,7 +356,7 @@ button:focus-visible {
   margin-bottom: 0;
 }
 
-/* 화면에서는 숨기되 키보드와 스크린 리더로 선택할 수 있게 유지한다. */
+/* 화면에서는 숨기되 선택할 수 있게 유지. */
 .class-choice {
   position: absolute;
   width: 1px;
@@ -499,8 +499,11 @@ button:focus-visible {
   right: 0;
   width: 46px;
   height: 48px;
+  cursor: pointer;
 }
-
+.heading-arrow:hover {
+  filter: brightness(0.6);
+}
 .introduction-panel {
   position: relative;
   width: 525px;
