@@ -117,8 +117,22 @@ button:focus-visible {
 }
 
 .nav-list {
+  --nav-index: 0;
+  --nav-center: 1em;
+  position: relative;
   display: flex;
   gap: 69px;
+  font-size: 14px;
+}
+/*------------------------------상단 선택바----------------------------------*/
+/* 메뉴 글자 수에 맞춘 너비: 2 + 2 + 3 + 2 + 3 + 2 = 14em */
+.nav-list > li {
+  flex: 0 0 2em;
+}
+/*------------------------------상단 선택바----------------------------------*/
+.nav-list > li:nth-child(3),
+.nav-list > li:nth-child(5) {
+  flex-basis: 3em;
 }
 
 .nav-link {
@@ -129,6 +143,7 @@ button:focus-visible {
   font-size: 14px;
   font-weight: 600;
   line-height: 18px;
+  text-align: center;
   white-space: nowrap;
 }
 .nav-link {
@@ -192,7 +207,7 @@ button:focus-visible {
   background-color: #32394f;
 }
 .nav-item-information:hover .information-card,
-.nav-item-information:has(> .nav-link:focus-visible) .information-card {
+.nav-item-information:focus-within .information-card {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
@@ -204,14 +219,72 @@ button:focus-visible {
   }
 }
 
-.active::before {
+/* 메뉴 사이 간격은 전체 너비에서 글자 영역(14em)을 빼서 계산합니다. */
+.nav-list::before {
   position: absolute;
   top: 0;
-  left: 0;
+  left: calc(var(--nav-center) + var(--nav-index) * ((100% - 14em) / 5));
   width: 29px;
   height: 8px;
   background: #05d9ff;
   content: "";
+  pointer-events: none;
+  transform: translateX(-50%);
+  transition: left 0.3s ease;
+}
+/*------------------------------상단 선택바----------------------------------*/
+/* 마우스 선택 → 키보드 선택 → 현재 페이지 순서로 장식선 위치를 정합니다.
+   첫 번째 메뉴(소식)는 위의 기본값을 사용합니다. */
+.nav-list:not(:has(> li:hover, > li:focus-within)):has(
+    > li:nth-child(2) > .nav-link.active
+  ),
+.nav-list:not(:has(> li:hover)):has(> li:nth-child(2):focus-within),
+.nav-list:has(> li:nth-child(2):hover) {
+  --nav-index: 1;
+  --nav-center: 3em;
+}
+
+.nav-list:not(:has(> li:hover, > li:focus-within)):has(
+    > li:nth-child(3) > .nav-link.active
+  ),
+.nav-list:not(:has(> li:hover)):has(> li:nth-child(3):focus-within),
+.nav-list:has(> li:nth-child(3):hover) {
+  --nav-index: 2;
+  --nav-center: 5.5em;
+}
+
+.nav-list:not(:has(> li:hover, > li:focus-within)):has(
+    > li:nth-child(4) > .nav-link.active
+  ),
+.nav-list:not(:has(> li:hover)):has(> li:nth-child(4):focus-within),
+.nav-list:has(> li:nth-child(4):hover) {
+  --nav-index: 3;
+  --nav-center: 8em;
+}
+
+.nav-list:not(:has(> li:hover, > li:focus-within)):has(
+    > li:nth-child(5) > .nav-link.active
+  ),
+.nav-list:not(:has(> li:hover)):has(> li:nth-child(5):focus-within),
+.nav-list:has(> li:nth-child(5):hover) {
+  --nav-index: 4;
+  --nav-center: 10.5em;
+}
+
+.nav-list:not(:has(> li:hover, > li:focus-within)):has(
+    > li:nth-child(6) > .nav-link.active
+  ),
+.nav-list:not(:has(> li:hover)):has(> li:nth-child(6):focus-within),
+.nav-list:has(> li:nth-child(6):hover) {
+  --nav-index: 5;
+  --nav-center: 13em;
+}
+/*------------------------------상단 선택바----------------------------------*/
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-list::before {
+    transition: none;
+  }
 }
 
 .header-actions {
