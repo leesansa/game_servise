@@ -81,6 +81,7 @@ button:focus-visible {
 }
 
 .class-artwork {
+  display: none;
   position: absolute;
   z-index: 2;
   top: 75px;
@@ -89,6 +90,18 @@ button:focus-visible {
   height: 949px;
   object-fit: contain;
   pointer-events: none;
+}
+
+/* 선택한 직업의 이미지만 표시합니다. 더미 이미지도 추가하면 같은 규칙이 적용됩니다. */
+.job-stage:has(#class-ruler:checked) .class-artwork-ruler,
+.job-stage:has(#class-knight:checked) .class-artwork-knight,
+.job-stage:has(#class-mage:checked) .class-artwork-mage,
+.job-stage:has(#class-elf:checked) .class-artwork-elf,
+.job-stage:has(#class-dark-elf:checked) .class-artwork-dark-elf,
+.job-stage:has(#class-fighter:checked) .class-artwork-fighter,
+.job-stage:has(#class-dark-knight:checked) .class-artwork-dark-knight,
+.job-stage:has(#class-holy-knight:checked) .class-artwork-holy-knight {
+  display: block;
 }
 
 /* -----------------------------헤더 영역------------------------------------ */
