@@ -79,7 +79,7 @@ button:focus-visible {
   background-position: center top;
   background-size: auto 1024px;
 }
-
+/*-----------------------------캐릭터 일러스트-----------------------------------*/
 .class-artwork {
   display: none;
   position: absolute;
@@ -91,7 +91,12 @@ button:focus-visible {
   object-fit: contain;
   pointer-events: none;
 }
-
+.class-artwork-knight {
+  left: calc(70% - 664px);
+}
+.class-artwork-mage {
+  left: calc(65% - 664px);
+}
 /* 선택한 직업의 이미지만 표시합니다. 더미 이미지도 추가하면 같은 규칙이 적용됩니다. */
 .job-stage:has(#class-ruler:checked) .class-artwork-ruler,
 .job-stage:has(#class-knight:checked) .class-artwork-knight,
@@ -516,7 +521,22 @@ button:focus-visible {
 }
 /*------------------------------직업 목록------------------------------------*/
 
-/* 군주 소개 */
+/* 직업 소개: 기사와 마법사는 선택한 문구를, 나머지는 기존 문구를 표시합니다. */
+.class-copy-knight,
+.class-copy-mage {
+  display: none;
+}
+
+.class-content:has(#class-knight:checked, #class-mage:checked)
+  .class-copy-ruler {
+  display: none;
+}
+
+.class-content:has(#class-knight:checked) .class-copy-knight,
+.class-content:has(#class-mage:checked) .class-copy-mage {
+  display: inline;
+}
+
 .class-introduction {
   position: absolute;
   z-index: 6;
