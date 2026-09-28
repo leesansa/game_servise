@@ -314,6 +314,9 @@ button:focus-visible {
 }
 
 .login-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 62px;
   height: 26px;
   border-radius: 10px;

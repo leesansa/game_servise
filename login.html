@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="리니지 통합 계정 로그인 화면" />
+    <title>리니지 | 로그인</title>
+    <link rel="icon" href="assets/logo.png" />
+    <link rel="stylesheet" href="login.css" />
+    <script src="login.js" defer></script>
+  </head>
+  <body class="login-page">
+    <a class="skip-link" href="#login-card">로그인으로 바로가기</a>
+    <div class="login-stage">
+      <!-- 헤더 -->
+      <header class="header">
+        <a class="logo" href="index.html" aria-label="리니지 홈">
+          <img class="logo-image" src="assets/logo.png" alt="리니지" />
+        </a>
+
+        <nav class="navigation" aria-label="주 메뉴">
+          <ul class="nav-list">
+            <li><a class="nav-link" href="index.html">소식</a></li>
+            <li>
+              <a class="nav-link active" href="job.html" aria-current="page"
+                >직업</a
+              >
+            </li>
+            <li class="nav-item-information">
+              <a class="nav-link" href="info.html">정보▼</a>
+              <div class="information-card">
+                <a href="contents.html" class="information-link">콘텐츠</a>
+                <a href="region.html" class="information-link">지역</a>
+                <a href="siege.html" class="information-link">공성전</a>
+                <a href="media.html" class="information-link">미디어</a>
+              </div>
+            </li>
+            <li><a class="nav-link" href="community.html">소통</a></li>
+            <li><a class="nav-link" href="world.html">세계관</a></li>
+            <li><a class="nav-link" href="shop.html">상점</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <a class="login-button" href="login.html">로그인</a>
+          <img
+            class="profile-image"
+            src="assets/profile.png"
+            alt="사용자 프로필"
+          />
+          <a
+            class="download-button"
+            href="https://lineage.plaync.com/download/index"
+            >다운로드</a
+          >
+        </div>
+      </header>
+
+      <main class="login-main">
+        <section
+          class="login-card"
+          id="login-card"
+          aria-labelledby="login-title"
+        >
+          <img class="nc-logo" src="assets/nc-logo.webp" alt="NC" />
+          <h1 id="login-title">통합 계정 로그인</h1>
+
+          <div class="login-fields">
+            <label class="visually-hidden" for="account-id"
+              >아이디 또는 이메일</label
+            >
+            <input
+              id="account-id"
+              type="text"
+              placeholder="아이디/이메일"
+              autocomplete="username"
+              aria-describedby="account-id-error"
+            />
+            <p class="field-error" id="account-id-error">
+              계정 아이디를 입력해 주세요
+            </p>
+            <label class="visually-hidden" for="account-password"
+              >비밀번호</label
+            >
+            <input
+              id="account-password"
+              type="password"
+              placeholder="비밀번호"
+              autocomplete="current-password"
+              aria-describedby="account-password-error"
+            />
+            <p class="field-error" id="account-password-error">
+              비밀번호를 입력해 주세요
+            </p>
+          </div>
+
+          <button class="submit-button" type="button" disabled>로그인</button>
+          <div class="account-links">
+            <a href="#">아이디/비밀번호 찾기</a>
+            <a href="#">회원가입</a>
+          </div>
+
+          <div class="social-heading"><span>소셜 로그인</span></div>
+          <div class="social-list" aria-label="소셜 로그인">
+            <a
+              class="social-icon"
+              href="https://www.instagram.com/accounts/login/"
+              aria-label="Instagram 로그인 페이지로 이동"
+              ><img src="assets/instargram.png" alt=""
+            /></a>
+            <a
+              class="social-icon"
+              href="https://x.com/login"
+              aria-label="X 로그인 페이지로 이동"
+              ><img src="assets/X.png" alt=""
+            /></a>
+            <a
+              class="social-icon"
+              href="https://accounts.google.com/"
+              aria-label="Google 로그인 페이지로 이동"
+              ><img src="assets/Google.png" alt=""
+            /></a>
+            <a
+              class="social-icon"
+              href="https://login.live.com/"
+              aria-label="Microsoft 로그인 페이지로 이동"
+              ><img src="assets/Microsoft.png" alt=""
+            /></a>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
