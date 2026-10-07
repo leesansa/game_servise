@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="ko" class="region-document">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="아덴의 마을과 말하는 섬 마을 정보를 안내합니다."
+    />
+    <title>리니지 | 지역</title>
+    <link rel="icon" href="../assets/logo.png" />
+    <link rel="stylesheet" href="../job/job.css" />
+    <link rel="stylesheet" href="region.css" />
+    <!-- [추가] Village sections and scroll navigation -->
+    <script src="region.js" defer></script>
+  </head>
+  <body class="region-page">
+    <a class="skip-link" href="#region-detail">마을 정보 바로가기</a>
+    <header class="header">
+      <a class="logo" href="../index/index.html" aria-label="리니지 홈">
+        <img class="logo-image" src="../assets/logo.png" alt="리니지" />
+      </a>
+
+      <nav class="navigation" aria-label="주 메뉴">
+        <ul class="nav-list">
+          <li>
+            <a class="nav-link" href="../index/index.html">소식</a>
+          </li>
+          <li>
+            <a class="nav-link" href="../job/job.html">직업</a>
+          </li>
+          <li class="nav-item-information">
+            <a class="nav-link active" href="../info.html" aria-current="page"
+              >정보▼</a
+            >
+
+            <!-- 히든카드 부분 -->
+
+            <div class="information-card">
+              <a href="../contents/contents.html" class="information-link"
+                >콘텐츠</a
+              >
+              <a href="../region.html" class="information-link">지역</a>
+              <a href="../siege.html" class="information-link">공성전</a>
+              <a href="../media.html" class="information-link">미디어</a>
+            </div>
+          </li>
+          <li><a class="nav-link" href="../community.html">소통</a></li>
+          <li><a class="nav-link" href="../world.html">세계관</a></li>
+          <li><a class="nav-link" href="../shop.html">상점</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a class="login-button" href="../login/login.html">로그인</a>
+        <img
+          class="profile-image"
+          src="../assets/profile.png"
+          alt="사용자 프로필"
+        />
+        <a
+          class="download-button"
+          href="https://lineage.plaync.com/download/index"
+        >
+          다운로드
+        </a>
+      </div>
+    </header>
+    <main>
+      <section
+        class="region-screen region-intro"
+        aria-labelledby="region-title"
+      >
+        <div class="region-canvas">
+          <div class="region-artwork village-artwork" aria-hidden="true">
+            <img src="../assets/region-village.jpg" alt="" />
+          </div>
+          <h1 id="region-title" class="region-title">마을정보</h1>
+          <p class="region-subtitle">아덴 마을의 다양한 정보를 안내 합니다.</p>
+          <a
+            class="region-scroll"
+            href="#region-detail"
+            aria-label="마을 상세 정보로 이동"
+            ><img
+              src="../assets/region-scroll-arrow.png"
+              width="59"
+              height="31"
+              alt=""
+          /></a>
+        </div>
+      </section>
+      <!-- [추가] Village sections and scroll navigation -->
+      <div class="region-villages">
+        <!-- [추가] Village sections and scroll navigation -->
+        <div class="village-navigation">
+          <aside class="village-index" aria-label="마을 목록">
+            <ol>
+              <li class="selected">
+                <a href="#region-detail" aria-current="location"
+                  ><span>말하는 섬</span><i aria-hidden="true"></i
+                ></a>
+              </li>
+              <li>
+                <a href="#village-gludin"
+                  ><span>글루딘</span><i aria-hidden="true"></i
+                ></a>
+              </li>
+              <li>
+                <a href="#village-elf"
+                  ><span>요정 숲</span><i aria-hidden="true"></i
+                ></a>
+              </li>
+              <li>
+                <a href="#village-silver-knight"
+                  ><span>은기사</span><i aria-hidden="true"></i
+                ></a>
+              </li>
+              <li>
+                <a href="#village-giran"
+                  ><span>기란</span><i aria-hidden="true"></i
+                ></a>
+              </li>
+              <li>
+                <a href="#village-kent"
+                  ><span>켄트</span><i aria-hidden="true"></i
+                ></a>
+              </li>
+              <li>
+                <a href="#village-oren"
+                  ><span>오렌</span><i aria-hidden="true"></i
+                ></a>
+              </li>
+              <li>
+                <a href="#village-aden"
+                  ><span>아덴</span><i aria-hidden="true"></i
+                ></a>
+              </li>
+            </ol>
+          </aside>
+        </div>
+        <!-- [추가] Village sections and scroll navigation -->
+        <section
+          class="region-screen region-detail"
+          id="region-detail"
+          aria-labelledby="village-title-1"
+          data-village-index="0"
+        >
+          <div class="region-canvas">
+            <div class="region-artwork map-artwork" aria-hidden="true">
+              <img
+                src="../assets/region-world-map(2).jpg"
+                alt=""
+                decoding="async"
+              />
+            </div>
+            <h2 id="village-title-1" class="village-title">말하는 섬 마을</h2>
+            <p class="village-description">
+              말하는 섬 마을은 튜토리얼 퀘스트 완료 후 캐릭터들이 도착하는
+              마을입니다.<br />마을 외곽 쪽에는 낮은 레벨 몬스터들이 출현해<br />말하는
+              섬 마을을 기점으로 삼아 레벨을 올릴 수 있습니다.
+            </p>
+            <!-- [추가] 마을 상세 팝업 열기 -->
+            <button class="village-more" type="button" aria-haspopup="dialog" aria-controls="village-dialog">
+              <img
+                class="detail-icon"
+                src="../assets/region-detail-icon.svg"
+                width="57"
+                height="57"
+                alt=""
+              />
+              <span>상세 정보 보기</span>
+            </button>
+          </div>
+        </section>
+        <!-- [추가] Village sections and scroll navigation -->
+        <section
+          class="region-screen region-detail"
+          id="village-gludin"
+          aria-labelledby="village-title-2"
+          data-village-index="1"
+        >
+          <div class="region-canvas">
+            <div class="region-artwork map-artwork" aria-hidden="true">
+              <img
+                src="../assets/region-world-map(3).png"
+                alt=""
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <h2 id="village-title-2" class="village-title">글루딘 마을</h2>
+            <p class="village-description">
+              말하는 섬 마을에 이어 두번째로 세워진 역사 깊은 곳으로<br />흔히
+              ‘본토 마을’이라 불리곤 했습니다.<br />다양한 편의 시설이 준비되어
+              있어<br />여전히 많은 이들이 이곳을 찾고 있습니다.
+            </p>
+            <!-- [추가] 마을 상세 팝업 열기 -->
+            <button class="village-more" type="button" aria-haspopup="dialog" aria-controls="village-dialog">
+              <img
+                class="detail-icon"
+                src="../assets/region-detail-icon.svg"
+                width="57"
+                height="57"
+                alt=""
+              />
+              <span>상세 정보 보기</span>
+            </button>
+          </div>
+        </section>
+        <!-- [추가] Village sections and scroll navigation -->
+        <section
+          class="region-screen region-detail"
+          id="village-elf"
+          aria-labelledby="village-title-3"
+          data-village-index="2"
+        >
+          <div class="region-canvas">
+            <div class="region-artwork map-artwork" aria-hidden="true">
+              <!-- [수정] 요정 숲 배경: AI로 해상도를 높인 이미지 적용 -->
+              <img
+                src="../assets/region-elf-map-upscaled.png"
+                alt=""
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <h2 id="village-title-3" class="village-title">요정 숲 마을</h2>
+            <p class="village-description">
+              요정 클래스가 초보자 퀘스트 이후 도착하는 곳으로,<br />마을
+              서쪽에는 요정 숲 던전으로 들어가는 입구가 있습니다.
+            </p>
+            <!-- [추가] 마을 상세 팝업 열기 -->
+            <button class="village-more" type="button" aria-haspopup="dialog" aria-controls="village-dialog">
+              <img
+                class="detail-icon"
+                src="../assets/region-detail-icon.svg"
+                width="57"
+                height="57"
+                alt=""
+              />
+              <span>상세 정보 보기</span>
+            </button>
+          </div>
+        </section>
+        <!-- [추가] Village sections and scroll navigation -->
+        <section
+          class="region-screen region-detail"
+          id="village-silver-knight"
+          aria-labelledby="village-title-4"
+          data-village-index="3"
+        >
+          <div class="region-canvas">
+            <div class="region-artwork map-artwork" aria-hidden="true">
+              <img
+                src="../assets/region-world-map1 (5).jpg"
+                alt=""
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <h2 id="village-title-4" class="village-title">은기사 마을</h2>
+            <p class="village-description">
+              은기사 마을은 초보자 퀘스트 이후 기사 클래스가 도착하는 곳으로<br />마을
+              서쪽의 외곽에는 수련 던전으로 들어가는 입구가 있습니다.
+            </p>
+            <!-- [추가] 마을 상세 팝업 열기 -->
+            <button class="village-more" type="button" aria-haspopup="dialog" aria-controls="village-dialog">
+              <img
+                class="detail-icon"
+                src="../assets/region-detail-icon.svg"
+                width="57"
+                height="57"
+                alt=""
+              />
+              <span>상세 정보 보기</span>
+            </button>
+          </div>
+        </section>
+        <!-- [추가] Village sections and scroll navigation -->
+        <section
+          class="region-screen region-detail"
+          id="village-giran"
+          aria-labelledby="village-title-5"
+          data-village-index="4"
+        >
+          <div class="region-canvas">
+            <div class="region-artwork map-artwork" aria-hidden="true">
+              <img
+                src="../assets/region-world-map1 (6).jpg"
+                alt=""
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <h2 id="village-title-5" class="village-title">기란 마을</h2>
+            <p class="village-description">
+              용의 계곡, 기란 던전 등 좋은 사냥터가 배치된 기란 마을은<br />예전부터
+              많은 플레이어들이 모여드는 마을입니다.<br />대 도시인만큼 많은
+              상인들이 고루 배치되어 있으며,<br />마을 주변에는 혈맹 아지트가
+              다수 배치되어 혈맹원들이 자주 찾는 마을입니다.
+            </p>
+            <!-- [추가] 마을 상세 팝업 열기 -->
+            <button class="village-more" type="button" aria-haspopup="dialog" aria-controls="village-dialog">
+              <img
+                class="detail-icon"
+                src="../assets/region-detail-icon.svg"
+                width="57"
+                height="57"
+                alt=""
+              />
+              <span>상세 정보 보기</span>
+            </button>
+          </div>
+        </section>
+        <!-- [추가] Village sections and scroll navigation -->
+        <section
+          class="region-screen region-detail"
+          id="village-kent"
+          aria-labelledby="village-title-6"
+          data-village-index="5"
+        >
+          <div class="region-canvas">
+            <div class="region-artwork map-artwork" aria-hidden="true">
+              <img
+                src="../assets/region-world-map1 (7).jpg"
+                alt=""
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <h2 id="village-title-6" class="village-title">켄트 마을</h2>
+            <p class="village-description">
+              켄트 마을은 모든 사막형 몬스터가 모이는<br />윈다우드 필드와 가장
+              가까운 마을입니다.<br />또한, 사막에서 등장하는 개미류 몬스터와<br />전갈형
+              몬스터를 공략하는 플레이어도 많은 편입니다.
+            </p>
+            <!-- [추가] 마을 상세 팝업 열기 -->
+            <button class="village-more" type="button" aria-haspopup="dialog" aria-controls="village-dialog">
+              <img
+                class="detail-icon"
+                src="../assets/region-detail-icon.svg"
+                width="57"
+                height="57"
+                alt=""
+              />
+              <span>상세 정보 보기</span>
+            </button>
+          </div>
+        </section>
+        <!-- [추가] Village sections and scroll navigation -->
+        <section
+          class="region-screen region-detail"
+          id="village-oren"
+          aria-labelledby="village-title-7"
+          data-village-index="6"
+        >
+          <div class="region-canvas">
+            <div class="region-artwork map-artwork" aria-hidden="true">
+              <img
+                src="../assets/region-world-map1 (8).jpg"
+                alt=""
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <h2 id="village-title-7" class="village-title">오렌 마을</h2>
+            <p class="village-description">
+              오렌 마을은 마법의 정수가 모여있는 오렌 상아탑과 가까운 마을
+              입니다.<br />북쪽으로는 강력한 설원 몬스터가 등장하는 오렌 설벽이
+              위치해 있으며,<br />동남쪽에는 강력한 언데드 몬스터인 엘모어
+              시리즈가 등장하는 지역입니다.
+            </p>
+            <!-- [추가] 마을 상세 팝업 열기 -->
+            <button class="village-more" type="button" aria-haspopup="dialog" aria-controls="village-dialog">
+              <img
+                class="detail-icon"
+                src="../assets/region-detail-icon.svg"
+                width="57"
+                height="57"
+                alt=""
+              />
+              <span>상세 정보 보기</span>
+            </button>
+          </div>
+        </section>
+        <!-- [추가] Village sections and scroll navigation -->
+        <section
+          class="region-screen region-detail"
+          id="village-aden"
+          aria-labelledby="village-title-8"
+          data-village-index="7"
+        >
+          <div class="region-canvas">
+            <div class="region-artwork map-artwork" aria-hidden="true">
+              <img
+                src="../assets/region-world-map1 (9).jpg"
+                alt=""
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <h2 id="village-title-8" class="village-title">아덴 마을</h2>
+            <p class="village-description">
+              아덴 마을은 아덴 월드 최대 넓이를 자랑하는 곳으로<br />다양한
+              상인들이 고루 분포 되어 있으며,<br />많은 플레이어들이 방문하는
+              활기찬 마을입니다.
+            </p>
+            <!-- [추가] 마을 상세 팝업 열기 -->
+            <button class="village-more" type="button" aria-haspopup="dialog" aria-controls="village-dialog">
+              <img
+                class="detail-icon"
+                src="../assets/region-detail-icon.svg"
+                width="57"
+                height="57"
+                alt=""
+              />
+              <span>상세 정보 보기</span>
+            </button>
+          </div>
+        </section>
+      </div>
+    </main>
+    <!-- [추가] 모든 마을이 함께 사용하는 스크롤 가능한 상세 팝업 -->
+    <dialog class="village-dialog" id="village-dialog" aria-labelledby="dialog-title">
+      <header class="dialog-heading">
+        <h2 id="dialog-title"></h2>
+        <button class="dialog-close" type="button" aria-label="상세 정보 닫기" autofocus>
+          <img src="../assets/닫기.png" width="59" height="32" alt="" />
+        </button>
+      </header>
+      <div class="dialog-body">
+        <img class="dialog-image" alt="" />
+        <p class="dialog-description"></p>
+        <div class="dialog-details"></div>
+      </div>
+    </dialog>
+  </body>
+</html>

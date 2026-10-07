@@ -1,0 +1,333 @@
+.region-document {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  scrollbar-width: none;
+}
+.region-document::-webkit-scrollbar {
+  display: none;
+}
+.region-page {
+  min-width: 1024px;
+  overflow-x: hidden;
+  color: #fff;
+  background: #080b1c;
+  font-family: "IBM Plex Mono", "Malgun Gothic", "맑은 고딕", sans-serif;
+}
+.region-page > .header {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 10;
+}
+.region-screen {
+  position: relative;
+  height: max(1024px, 100svh);
+  overflow: hidden;
+  scroll-snap-align: start;
+}
+.region-canvas {
+  position: relative;
+  width: 1440px;
+  height: 100%;
+  margin-left: calc((100% - 1440px) / 2);
+}
+.region-artwork {
+  position: absolute;
+  pointer-events: none;
+}
+.region-artwork img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.region-artwork::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgb(0 0 0 / 40%);
+}
+.village-artwork {
+  left: -622px;
+  top: 75px;
+  width: 3190px;
+  height: max(950px, calc(100% - 75px));
+}
+.map-artwork {
+  left: -253px;
+  top: 0;
+  width: 1944px;
+  height: max(1026px, 100%);
+}
+.region-title,
+.village-title {
+  position: absolute;
+  margin: 0;
+  font-size: 70px;
+  font-weight: 400;
+  line-height: 91px;
+  letter-spacing: -5.625px;
+  word-spacing: 5.625px;
+  text-align: center;
+  white-space: nowrap;
+}
+.region-title {
+  left: 592px;
+  top: 326px;
+  width: 258px;
+}
+.region-subtitle {
+  position: absolute;
+  left: 400px;
+  top: 430px;
+  width: 642px;
+  font-size: 35px;
+  line-height: 46px;
+  letter-spacing: -2.8125px;
+  word-spacing: 2.8125px;
+  text-align: center;
+  white-space: nowrap;
+}
+.region-scroll {
+  position: absolute;
+  left: 691px;
+  top: 834px;
+  padding: 8px;
+  margin: -8px;
+}
+.village-title {
+  left: 508px;
+  top: 295px;
+  width: 422px;
+}
+.village-description {
+  position: absolute;
+  left: 409px;
+  top: 422px;
+  width: 621px;
+  font-size: 20px;
+  line-height: 26px;
+  letter-spacing: -1.6px;
+  word-spacing: 1.6px;
+  text-align: center;
+  white-space: nowrap;
+}
+.village-more {
+  position: absolute;
+  left: 658px;
+  top: 588px;
+  width: 121px;
+  text-align: center;
+  /* [추가] 기존 모양을 유지한 상세 정보 버튼 */
+  padding: 0;
+  border: 0;
+  color: inherit;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+}
+.detail-icon {
+  width: 56.568px;
+  height: 56.568px;
+  margin: 0 auto 6.432px;
+}
+.village-more span {
+  font-size: 20px;
+  line-height: 26px;
+  letter-spacing: -1.6px;
+  white-space: nowrap;
+}
+/* [추가] 상세 버튼의 키보드 포커스 */
+.village-more:focus-visible {
+  outline: 2px solid #eed09b;
+  outline-offset: 8px;
+}
+.village-index {
+  position: absolute;
+  left: 1223px;
+  top: 361px;
+  width: 150px;
+}
+/* [추가] 1. 마을 상세 구간에서 목록 위치 고정 */
+.region-villages {
+  position: relative;
+}
+.village-navigation {
+  position: sticky;
+  top: 0;
+  height: 0;
+  z-index: 5;
+}
+.village-navigation .village-index {
+  left: calc(50% + 503px);
+}
+/* [추가] 소개 파일의 긴 문장이 목록과 겹치지 않도록 줄바꿈 */
+.region-detail .village-description {
+  left: 300px;
+  width: 840px;
+  white-space: normal;
+}
+.village-index::before {
+  content: "";
+  position: absolute;
+  top: 13px;
+  left: 148px;
+  width: 3px;
+  height: 356px;
+  background: rgb(255 255 255 / 40%);
+}
+.village-index li {
+  position: relative;
+  height: 51px;
+  font-size: 15px;
+  line-height: 20px;
+}
+.village-index li span {
+  display: block;
+  width: 129px;
+  text-align: right;
+}
+.village-index li i {
+  position: absolute;
+  left: 146.16px;
+  top: 12px;
+  width: 7px;
+  height: 7px;
+  background: white;
+  transform: rotate(45deg);
+}
+.village-index .selected {
+  color: #000;
+}
+/* [추가] 2. 공통 흰색 바: 선택된 항목까지 부드럽게 이동 */
+.village-index ol {
+  position: relative;
+}
+.village-index ol::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 1px;
+  width: 133px;
+  height: 20px;
+  background: rgb(255 255 255 / 96%);
+  transform: translateY(var(--village-offset, 0px));
+  transition: transform 0.3s ease;
+  pointer-events: none;
+}
+.village-index li span {
+  position: relative;
+}
+/* [추가] 3. 공통 선택 마름모: 흰색 바와 같은 거리/속도로 이동 */
+.village-index ol::after {
+  content: "";
+  position: absolute;
+  left: 140.728px;
+  top: 3.728px;
+  width: 18px;
+  height: 18px;
+  border: 1px solid white;
+  background: linear-gradient(white, white) center / 10px 10px no-repeat;
+  transform: translateY(var(--village-offset, 0px)) rotate(45deg);
+  transition: transform 0.3s ease;
+  pointer-events: none;
+}
+/* [추가] 4. 선택된 글자/작은 마름모 상태 및 키보드 접근 */
+.village-index li {
+  transition: color 0.3s ease;
+}
+.village-index .selected i {
+  opacity: 0;
+}
+.village-index li i {
+  transition: opacity 0.3s ease;
+}
+.village-index a {
+  position: relative;
+  display: block;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+}
+.village-index a:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 4px;
+}
+@media (max-width: 1439px) {
+  .village-index {
+    left: auto;
+    right: calc((1440px - 100vw) / 2 + 45px);
+  }
+  /* [추가] 공통 목록은 화면 기준으로 정렬하고 긴 설명과 간격 확보 */
+  .village-navigation .village-index {
+    left: auto;
+    right: 45px;
+  }
+  .region-detail .village-description {
+    left: 50%;
+    width: min(840px, calc(100vw - 420px));
+    transform: translateX(-50%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .region-document {
+    scroll-behavior: auto;
+  }
+  /* [추가] 움직임 최소화 설정에서는 선택 표시를 즉시 변경 */
+  .village-index li,
+  .village-index li i,
+  .village-index ol::before,
+  .village-index ol::after {
+    transition: none;
+  }
+}
+
+/* [추가] 5. 공통 상세 팝업: 배경 스크롤 잠금, 내부 스크롤, 고정 닫기 버튼 */
+.village-dialog-open { overflow: hidden; }
+.village-dialog {
+  width: min(860px, calc(100vw - 32px));
+  max-height: 85dvh;
+  margin: auto;
+  padding: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+  border: 1px solid #776544;
+  color: #ede9df;
+  background: #111722;
+  box-shadow: 0 20px 80px #0009;
+}
+.village-dialog::backdrop { background: #000b; }
+.dialog-heading {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 28px;
+  border-bottom: 1px solid #776544;
+  background: #111722;
+}
+.dialog-heading h2 { font-size: clamp(20px, 3vw, 28px); color: #eed09b; }
+.dialog-close {
+  flex: 0 0 59px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.dialog-close img { width: 59px; height: 32px; }
+.dialog-close:focus-visible { outline: 2px solid #eed09b; outline-offset: 3px; }
+.dialog-body { padding: 28px; }
+.dialog-image { width: 100%; height: 180px; object-fit: cover; }
+.dialog-description { margin: 24px 0; line-height: 1.8; }
+.dialog-details article {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 18px;
+  padding: 24px 0;
+  border-top: 1px solid #ffffff26;
+}
+.dialog-details img { width: 60px; height: 60px; }
+.dialog-details h3 { margin-bottom: 10px; color: #eed09b; font-size: 18px; }
+.dialog-details p { line-height: 1.8; overflow-wrap: anywhere; }

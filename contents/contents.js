@@ -17,12 +17,17 @@
     slide.dataset.videoIndex = index;
   });
 
-  strip.prepend(...slides.slice(-cloneCount).map((slide) => slide.cloneNode(true)));
-  strip.append(...slides.slice(0, cloneCount).map((slide) => slide.cloneNode(true)));
+  strip.prepend(
+    ...slides.slice(-cloneCount).map((slide) => slide.cloneNode(true)),
+  );
+  strip.append(
+    ...slides.slice(0, cloneCount).map((slide) => slide.cloneNode(true)),
+  );
   const cards = [...strip.querySelectorAll(".video-card")];
 
   function render() {
-    const step = cards[0].offsetWidth + parseFloat(getComputedStyle(strip).columnGap);
+    const step =
+      cards[0].offsetWidth + parseFloat(getComputedStyle(strip).columnGap);
     strip.style.transform = `translateX(${(1 - position) * step}px)`;
 
     cards.forEach((card, index) => {
@@ -30,13 +35,16 @@
       card.classList.toggle("video-card-previous", index === position - 1);
       card.classList.toggle("video-card-next", index === position + 1);
       card.setAttribute("aria-hidden", String(index !== position));
-      card.querySelector(".video-trigger").tabIndex = index === position ? 0 : -1;
+      card.querySelector(".video-trigger").tabIndex =
+        index === position ? 0 : -1;
     });
 
     buttons.forEach((button, index) => {
       const isSelected = index === selectedIndex;
       button.setAttribute("aria-pressed", String(isSelected));
-      button.closest(".video-pagination-item").classList.toggle("is-selected", isSelected);
+      button
+        .closest(".video-pagination-item")
+        .classList.toggle("is-selected", isSelected);
     });
   }
 
@@ -78,7 +86,9 @@
     stopVideos();
     const player = document.createElement("iframe");
     player.className = "video-player";
-    player.title = card.querySelector(".video-trigger").getAttribute("aria-label");
+    player.title = card
+      .querySelector(".video-trigger")
+      .getAttribute("aria-label");
     player.src = `https://www.youtube.com/embed/${card.dataset.videoId}?autoplay=1&playsinline=1&rel=0`;
     player.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
     player.allowFullscreen = true;
@@ -122,15 +132,20 @@
   strip.addEventListener("click", (event) => {
     const trigger = event.target.closest(".video-trigger");
     if (!trigger || isAnimating) return;
-    selectVideo(Number(trigger.closest(".video-card").dataset.videoIndex), true);
+    selectVideo(
+      Number(trigger.closest(".video-card").dataset.videoIndex),
+      true,
+    );
   });
 
   buttons.forEach((button, index) => {
     button.addEventListener("click", () => selectVideo(index));
     button.addEventListener("keydown", (event) => {
       let nextIndex;
-      if (event.key === "ArrowLeft") nextIndex = (index - 1 + slides.length) % slides.length;
-      else if (event.key === "ArrowRight") nextIndex = (index + 1) % slides.length;
+      if (event.key === "ArrowLeft")
+        nextIndex = (index - 1 + slides.length) % slides.length;
+      else if (event.key === "ArrowRight")
+        nextIndex = (index + 1) % slides.length;
       else return;
 
       event.preventDefault();
@@ -140,7 +155,8 @@
   });
 
   strip.addEventListener("transitionend", (event) => {
-    if (event.target === strip && event.propertyName === "transform") finishTransition();
+    if (event.target === strip && event.propertyName === "transform")
+      finishTransition();
   });
 
   reducedMotion.addEventListener("change", () => {

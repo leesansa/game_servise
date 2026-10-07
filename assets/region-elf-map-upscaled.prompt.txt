@@ -1,0 +1,8 @@
+Tool: built-in image_gen (edit)
+Source: region-world-map1 (4).jpg, 630x200 pixels
+Output: region-elf-map-upscaled.png, 2155x730 pixels
+
+Prompt:
+Edit target: the supplied 630x200 pixel fantasy island map illustration. Perform a faithful high-resolution upscale and restoration of this exact image for a website background. Target 3780x1200 pixels (6x), preserving the original wide 3.15:1 aspect ratio and full uncropped composition. Preserve the exact island silhouette, coastline, blue lake on the left, mountain ridges, snowy sharp peaks at the upper center, green forest and valleys, blue ocean, cloud positions, colors, lighting, and painterly fantasy-game illustration style. Recover crisp, coherent fine details of existing forests, rocks, mountains, water and coastline and remove JPEG blur and compression artifacts, without changing the map layout. This is resolution enhancement only, not a redesign. Do not add buildings, characters, landmasses, symbols, labels, typography, borders, or watermarks. Do not crop, extend, reframe, or substantially change any existing feature.
+
+Note: The tool returned 2155x730 pixels. AI reconstructed fine details; the result is not a pixel-identical enlargement of the original.
