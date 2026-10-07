@@ -74,7 +74,7 @@ button:focus-visible {
   overflow: hidden;
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)),
-    url("assets/job-background.png");
+    url("../assets/job-background.png");
   background-repeat: no-repeat;
   background-position: center top;
   background-size: auto 1024px;
@@ -399,7 +399,7 @@ button:focus-visible {
   left: 0;
   width: 100%;
   height: var(--class-height);
-  background: url("assets/job-selection.png") left top / 100% 100% no-repeat;
+  background: url("../assets/job-selection.png") left top / 100% 100% no-repeat;
   content: "";
   pointer-events: none;
   transform: translateY(
@@ -561,7 +561,7 @@ button:focus-visible {
   left: -5px;
   width: 20px;
   height: 11px;
-  background: url("assets/job-title-corner.svg") center / 20px 11px no-repeat;
+  background: url("../assets/job-title-corner.svg") center / 20px 11px no-repeat;
   content: "";
   transform: rotate(-48deg);
 }

@@ -40,7 +40,7 @@ img {
   font-family: "IBM Plex Mono", "Malgun Gothic", "맑은 고딕", sans-serif;
   background-color: #101939;
   background-image:
-    url("assets/background.png"), url("assets/base-background.png");
+    url("../assets/background.png"), url("../assets/base-background.png");
   background-repeat: no-repeat;
   background-size:
     3840px 2160px,
@@ -535,7 +535,7 @@ a:focus-visible {
 .news-list {
   margin-top: 9px;
   padding-top: 2px;
-  background: url("assets/news-divider.svg") left top / 100% 2px no-repeat;
+  background: url("../assets/news-divider.svg") left top / 100% 2px no-repeat;
 }
 
 .news-item {
@@ -545,7 +545,7 @@ a:focus-visible {
   gap: 8px;
   min-height: 53px;
   padding: 0 9px;
-  background: url("assets/news-divider.svg") left bottom / 100% 2px no-repeat;
+  background: url("../assets/news-divider.svg") left bottom / 100% 2px no-repeat;
 }
 
 .news-item:first-child,

@@ -1,0 +1,244 @@
+.contents-page {
+  min-width: 1024px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  color: #ffffff;
+  background: #565543;
+  font-family: "IBM Plex Mono", "Malgun Gothic", "맑은 고딕", sans-serif;
+}
+
+.contents-stage {
+  position: relative;
+  min-width: 1024px;
+  min-height: max(100vh, 1024px);
+  overflow: hidden;
+  background-image: url("../assets/contents-background.png");
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-size: max(1820px, 100%) auto;
+}
+
+.contents-stage > .header {
+  position: relative;
+  z-index: 10;
+}
+
+.contents-main {
+  position: relative;
+  width: 1440px;
+  height: 949px;
+  margin-inline: auto;
+}
+
+.video-gallery {
+  padding-top: 236px;
+}
+
+.video-heading {
+  display: grid;
+  grid-template-columns: 249px 1fr 259px;
+  align-items: center;
+  width: 920px;
+  height: 83px;
+  margin-inline: auto;
+}
+
+.video-heading-line-left {
+  width: 249px;
+  height: 17px;
+}
+
+.video-heading-line-right {
+  width: 259px;
+  height: 17.696px;
+}
+
+.video-title {
+  justify-self: center;
+  width: 118px;
+  font-size: 64px;
+  font-weight: 600;
+  line-height: 83px;
+  letter-spacing: -5.125px;
+  white-space: nowrap;
+}
+
+.video-strip {
+  display: flex;
+  gap: 122px;
+  width: max-content;
+  height: 411px;
+  margin-top: 66px;
+  margin-left: -517px;
+  transform: translateX(-869px);
+  transition: transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.video-strip.is-resetting,
+.video-strip.is-resetting .video-play {
+  transition: none;
+}
+
+.video-card {
+  position: relative;
+  flex: 0 0 747px;
+  width: 747px;
+  height: 411px;
+  margin: 0;
+}
+
+.video-card::after {
+  position: absolute;
+  z-index: 2;
+  inset: -4px;
+  border: 4px solid #ffffff;
+  content: "";
+  pointer-events: none;
+}
+
+.video-thumbnail {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-trigger,
+.video-player {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: #000000;
+}
+
+.video-trigger {
+  cursor: pointer;
+}
+
+.video-trigger:focus-visible {
+  outline: 4px solid #ffda80;
+  outline-offset: 6px;
+}
+
+.video-card.is-playing .video-trigger {
+  visibility: hidden;
+}
+
+.video-player {
+  z-index: 1;
+}
+
+.video-play {
+  position: absolute;
+  z-index: 1;
+  top: 214px;
+  left: 368px;
+  width: 86px;
+  height: 86px;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.35s ease;
+}
+
+.video-card-featured .video-play {
+  opacity: 1;
+}
+
+.video-play::before {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.54);
+  content: "";
+  transform: rotate(45deg);
+}
+
+.video-play::after {
+  position: absolute;
+  top: 21.35px;
+  left: 30.5px;
+  border-top: 21.65px solid transparent;
+  border-bottom: 21.65px solid transparent;
+  border-left: 37.5px solid #ffffff;
+  content: "";
+}
+
+.video-pagination {
+  display: flex;
+  align-items: center;
+  gap: 47px;
+  width: max-content;
+  height: 26px;
+  margin-top: 59.384px;
+  margin-left: 556.384px;
+}
+
+.video-pagination-item {
+  display: grid;
+  flex: 0 0 26px;
+  width: 26px;
+  height: 26px;
+  place-items: center;
+}
+
+.video-pagination-button {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  place-items: center;
+}
+
+.video-pagination-item:last-child {
+  transform: translateX(-2px);
+}
+
+.video-pagination-item:not(.is-selected) {
+  position: relative;
+  top: -0.384px;
+  left: -0.384px;
+}
+
+.video-pagination-mark {
+  width: 11.314px;
+  height: 11.314px;
+  background: rgba(255, 255, 255, 0.75);
+  transform: rotate(45deg);
+}
+
+.video-pagination-item.is-selected {
+  position: relative;
+}
+
+.video-pagination-item.is-selected::before {
+  position: absolute;
+  inset: 0;
+  border: 3px solid #fffefe;
+  content: "";
+  pointer-events: none;
+  transform: rotate(45deg);
+}
+
+.is-selected .video-pagination-mark {
+  background: #ffffff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .video-strip,
+  .video-play {
+    transition: none;
+  }
+}
+
+@media (max-width: 1439px) {
+  .contents-main {
+    margin-left: calc((100% - 1440px) / 2);
+    margin-right: 0;
+  }
+}
