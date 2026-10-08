@@ -1,0 +1,24 @@
+/* Shared controls for the existing header layouts. */
+.header button.nav-link {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  padding-inline: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font-family: inherit;
+}
+.header button.nav-link:hover,
+.header button.nav-link:focus-visible {
+  color: #80e5ff;
+}
+.header .nav-link[aria-disabled="true"] {
+  opacity: 0.5;
+  color: inherit;
+  cursor: default;
+}
+.header .nav-link[aria-disabled="true"]:hover {
+  color: inherit;
+}

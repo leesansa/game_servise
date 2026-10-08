@@ -10,6 +10,7 @@
     <title>리니지 | 직업</title>
     <link rel="icon" href="../assets/logo.png" />
     <link rel="stylesheet" href="job.css" />
+    <link rel="stylesheet" href="../assets/header-navigation.css" />
   </head>
   <body class="job-page">
     <a class="skip-link" href="#class-introduction">직업 소개 바로가기</a>
@@ -53,20 +54,20 @@
               >
             </li>
             <li class="nav-item-information">
-              <a class="nav-link" href="../info.html">정보▼</a>
+              <button class="nav-link" type="button" aria-controls="information-menu" aria-label="정보 메뉴 열기">정보▼</button>
 
               <!-- 히든카드 부분 -->
 
-              <div class="information-card">
+              <div class="information-card" id="information-menu">
                 <a href="../contents/contents.html" class="information-link">콘텐츠</a>
                 <a href="../region/region.html" class="information-link">지역</a>
-                <a href="../siege.html" class="information-link">공성전</a>
-                <a href="../media.html" class="information-link">던전 및 보스</a>
+                <a href="../siege/siege.html" class="information-link">공성전</a>
+                <a href="../media/media.html" class="information-link">던전 및 보스</a>
               </div>
             </li>
-            <li><a class="nav-link" href="../community.html">소통</a></li>
-            <li><a class="nav-link" href="../world.html">세계관</a></li>
-            <li><a class="nav-link" href="../shop.html">상점</a></li>
+            <li><span class="nav-link" role="link" aria-disabled="true" title="준비 중" aria-label="소통 (준비 중)">소통</span></li>
+            <li><span class="nav-link" role="link" aria-disabled="true" title="준비 중" aria-label="세계관 (준비 중)">세계관</span></li>
+            <li><span class="nav-link" role="link" aria-disabled="true" title="준비 중" aria-label="상점 (준비 중)">상점</span></li>
           </ul>
         </nav>
 

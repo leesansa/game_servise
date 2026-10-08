@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="ko" class="siege-document siege-guide-document">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="리니지M 공성전의 인터페이스, 공성 선포, 승리 조건과 공성 던전을 안내합니다." />
+    <title>리니지 | 공성전 진행 방식</title>
+    <link rel="icon" href="../assets/logo.png" />
+    <link rel="stylesheet" href="../job/job.css" />
+    <link rel="stylesheet" href="siege.css" />
+    <link rel="stylesheet" href="siege-process.css" />
+    <script src="siege.js" defer></script>
+    <link rel="stylesheet" href="../assets/header-navigation.css" />
+  </head>
+  <body class="siege-page siege-guide-page">
+    <a class="skip-link" href="#siege-detail">공성전 진행 안내 바로가기</a>
+    <header class="header">
+      <a class="logo" href="../index/index.html" aria-label="리니지 홈">
+        <img class="logo-image" src="../assets/logo.png" alt="리니지" />
+      </a>
+      <nav class="navigation" aria-label="주 메뉴">
+        <ul class="nav-list">
+          <li><a class="nav-link" href="../index/index.html">소식</a></li>
+          <li><a class="nav-link" href="../job/job.html">직업</a></li>
+          <li class="nav-item-information">
+            <button class="nav-link active" type="button" aria-controls="information-menu" aria-label="정보 메뉴 열기">정보▼</button>
+            <div class="information-card" id="information-menu">
+              <a href="../contents/contents.html" class="information-link">콘텐츠</a>
+              <a href="../region/region.html" class="information-link">지역</a>
+              <a href="../siege/siege.html" class="information-link">공성전</a>
+              <a href="../media/media.html" class="information-link">던전 및 보스</a>
+            </div>
+          </li>
+          <li><span class="nav-link" role="link" aria-disabled="true" title="준비 중" aria-label="소통 (준비 중)">소통</span></li>
+          <li><span class="nav-link" role="link" aria-disabled="true" title="준비 중" aria-label="세계관 (준비 중)">세계관</span></li>
+          <li><span class="nav-link" role="link" aria-disabled="true" title="준비 중" aria-label="상점 (준비 중)">상점</span></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a class="login-button" href="../login/login.html">로그인</a>
+        <img class="profile-image" src="../assets/profile.png" alt="사용자 프로필" />
+        <a class="download-button" href="https://lineage.plaync.com/download/index">다운로드</a>
+      </div>
+    </header>
+    <main>
+      <section class="siege-screen siege-intro" aria-labelledby="siege-title">
+        <div class="siege-canvas">
+          <img class="siege-hero" src="../assets/siege-hero.png" alt="" />
+          <p class="guide-eyebrow">공성전 · 진행 안내</p>
+          <h1 class="siege-title" id="siege-title">공성전 진행 방식</h1>
+          <p class="siege-summary">공성 선포부터 면류관 획득까지,<br />성을 차지하기 위한 전투의 흐름을 알아보세요.</p>
+          <a class="siege-scroll" href="#siege-detail" aria-label="공성전 진행 안내로 이동">
+            <img src="../assets/region-scroll-arrow.png" width="60" height="31" alt="" />
+          </a>
+        </div>
+      </section>
+
+      <div class="guide-detail" id="siege-detail">
+        <nav class="guide-topics" aria-label="공성전 진행 방식 목차">
+          <a href="#siege-interface">인터페이스</a>
+          <a href="#siege-declaration">공성 선포</a>
+          <a href="#siege-victory">승리 규칙</a>
+          <a href="#siege-dungeon">공성 던전</a>
+        </nav>
+
+        <section class="guide-section" id="siege-interface" aria-labelledby="interface-title">
+          <div class="guide-section-heading">
+            <p class="guide-eyebrow">01 · 전투 준비</p>
+            <h2 id="interface-title">공성전 인터페이스</h2>
+          </div>
+          <div class="guide-content interface-grid">
+            <figure class="interface-panel">
+              <img src="../assets/siege-interface-move.jpg" width="278" height="416" alt="성 이동 화면의 성 목록과 구역 이동 버튼" loading="lazy" />
+              <figcaption>
+                <h3>성 이동</h3>
+                <ol class="interface-list">
+                  <li><span>1</span>목적지 선택</li>
+                  <li><span>2</span>선포·공성 현황</li>
+                  <li><span>3</span>유료 텔레포트: 좌측·중앙·우측</li>
+                </ol>
+              </figcaption>
+            </figure>
+            <figure class="interface-panel">
+              <img src="../assets/siege-interface-alliance.jpg" width="278" height="416" alt="공격 설정 화면의 아군 및 적군 혈맹 등록 기능" loading="lazy" />
+              <figcaption>
+                <h3>공격 설정</h3>
+                <ol class="interface-list" start="4">
+                  <li><span>4</span>피아식별 목록</li>
+                  <li><span>5</span>군주·수호기사의 관계 변경</li>
+                  <li><span>6</span>간소화: 아군·적군 마크</li>
+                  <li><span>7</span>혈맹 이름 검색·등록</li>
+                </ol>
+              </figcaption>
+            </figure>
+            <figure class="interface-panel">
+              <img src="../assets/siege-interface-declare.jpg" width="278" height="416" alt="공성 선포 화면의 공성 가능한 성 목록" loading="lazy" />
+              <figcaption>
+                <h3>공성 선포</h3>
+                <ol class="interface-list" start="8">
+                  <li><span>8</span>공성 현황</li>
+                  <li><span>9</span>군주의 성 선택·선포</li>
+                </ol>
+              </figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section class="guide-section" id="siege-declaration" aria-labelledby="declaration-title">
+          <div class="guide-section-heading">
+            <p class="guide-eyebrow">02 · 전투의 시작</p>
+            <h2 id="declaration-title">공성 선포</h2>
+          </div>
+          <div class="guide-content">
+            <figure class="guide-gameplay">
+              <img src="../assets/siege-declaration.jpg" width="1260" height="710" alt="공성 선포 후 성으로 진격하는 혈맹과 군주 표식" loading="lazy" />
+              <figcaption>수호탑 근처의 군주 표식</figcaption>
+            </figure>
+            <ul class="guide-rules">
+              <li>군주만 아데나를 지불해 종료 전까지 복수의 성에 선포 가능</li>
+              <li>선포 시 공성지역 혈맹원·용병 귀환</li>
+              <li>수성혈맹 외에는 인터페이스에서 취소 가능</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="guide-section" id="siege-victory" aria-labelledby="victory-title">
+          <div class="guide-section-heading">
+            <p class="guide-eyebrow">03 · 성의 주인</p>
+            <h2 id="victory-title">공성전 승리 규칙</h2>
+          </div>
+          <div class="guide-content">
+            <figure class="guide-gameplay">
+              <img src="../assets/siege-crown.jpg" width="1260" height="710" alt="수호탑 주변에서 면류관을 두고 전투하는 공성전 화면" loading="lazy" />
+              <figcaption>수호탑 파괴 후, 선포한 군주만 면류관 획득 가능</figcaption>
+            </figure>
+            <div class="guide-table-wrap">
+              <table class="guide-table">
+                <caption>면류관과 승리 조건</caption>
+                <thead><tr><th scope="col">대상</th><th scope="col">승리 조건</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">수성 군주</th><td>30분 동안 면류관 유지</td></tr>
+                  <tr><th scope="row">공성 군주</th><td>면류관 획득 후 20분 유지</td></tr>
+                  <tr><th scope="row">공통</th><td>종료 시점에 면류관 보유</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="guide-note">획득혈맹 외에는 강제귀환합니다. 면류관은 인벤토리에 없으며 군주의 왕관표식으로 표시됩니다.</p>
+          </div>
+        </section>
+
+        <section class="guide-section" id="siege-dungeon" aria-labelledby="dungeon-title">
+          <div class="guide-section-heading">
+            <p class="guide-eyebrow">04 · 또 하나의 전장</p>
+            <h2 id="dungeon-title">공성 던전</h2>
+          </div>
+          <div class="guide-content">
+            <p class="guide-note">비참여 혈맹의 경험치·아이템 획득 던전</p>
+            <div class="dungeon-route"><span>던전</span><span aria-hidden="true">→</span><span>공성 던전</span><span aria-hidden="true">→</span><span>일반 / 월드</span></div>
+            <div class="guide-table-wrap">
+              <table class="guide-table dungeon-table">
+                <caption>공성 던전 이용 안내</caption>
+                <thead><tr><th scope="col">항목</th><th scope="col">본 서버</th><th scope="col">인터 월드</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">던전</th><td>켄트 성 · 윈다우드 성 · 오크 요새</td><td>기란성</td></tr>
+                  <tr><th scope="row">이용 시간</th><td>켄트 성 공성 후 1시간</td><td>기란 성 공성 후 1시간</td></tr>
+                  <tr><th scope="row">입장 제한</th><td colspan="2">공성 선포 혈맹 · 75레벨 미만 입장 불가</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+        <footer class="guide-footer">
+          <a class="guide-back" href="siege.html#siege-detail">← 공성전 소개</a>
+          <p>참고: <a href="https://lineagem.plaync.com/guidebook/view?title=%EA%B3%B5%EC%84%B1%EC%A0%84%20%EC%A7%84%ED%96%89%20%EB%B0%A9%EC%8B%9D" target="_blank" rel="noopener noreferrer">리니지M 공식 가이드</a> · 문서 업데이트 2022.02.04</p>
+          <a class="guide-back" href="#siege-title">맨 위로 ↑</a>
+        </footer>
+      </div>
+    </main>
+  </body>
+</html>

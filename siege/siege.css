@@ -1,0 +1,330 @@
+.siege-document {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  scrollbar-width: none;
+}
+.siege-document::-webkit-scrollbar {
+  display: none;
+}
+.siege-page {
+  min-width: 0;
+  overflow-x: hidden;
+  color: #fff;
+  background: #171717;
+  font-family: "IBM Plex Mono", "Malgun Gothic", "맑은 고딕", sans-serif;
+}
+.siege-page > .header {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 10;
+}
+.siege-screen {
+  position: relative;
+  height: max(1024px, 100svh);
+  overflow: hidden;
+  scroll-snap-align: start;
+}
+.siege-intro {
+  height: 100vh;
+  height: 100dvh;
+  min-height: 360px;
+  background: #000;
+}
+.siege-intro .siege-canvas {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(16px, 3vh, 32px);
+  width: 100%;
+  margin-left: 0;
+  padding: 100px clamp(24px, 4vw, 72px) 112px;
+  isolation: isolate;
+}
+.siege-canvas {
+  position: relative;
+  width: 1440px;
+  height: 100%;
+  margin-left: calc((100% - 1440px) / 2);
+}
+.siege-hero {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.siege-intro .siege-canvas::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: linear-gradient(90deg, rgb(0 0 0 / 55%), transparent 80%);
+  pointer-events: none;
+}
+.siege-title,
+.siege-detail-title {
+  position: absolute;
+  margin: 0;
+  font-size: 60px;
+  font-weight: 500;
+  line-height: 78px;
+  letter-spacing: -4.8px;
+  word-spacing: 4.8px;
+  white-space: nowrap;
+}
+.siege-title {
+  position: relative;
+  width: min(100%, 640px);
+  font-size: clamp(28px, 4.2vw, 60px);
+  line-height: 1.3;
+  letter-spacing: -0.06em;
+  word-spacing: normal;
+  white-space: normal;
+  word-break: keep-all;
+}
+.siege-summary {
+  position: relative;
+  width: min(100%, 620px);
+  margin: 0;
+  font-size: clamp(16px, 1.4vw, 20px);
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: -0.04em;
+  word-spacing: normal;
+  white-space: normal;
+  word-break: keep-all;
+}
+.siege-scroll {
+  position: absolute;
+  left: 50%;
+  bottom: max(24px, env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  padding: 8px;
+}
+.siege-banner {
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 1441px;
+  height: 364px;
+}
+.siege-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.siege-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgb(0 0 0 / 70%);
+}
+.siege-detail-title {
+  left: 564px;
+  top: 148px;
+  width: 312px;
+  text-align: center;
+}
+.siege-detail-title::before {
+  content: "";
+  position: absolute;
+  top: -41px;
+  left: -564px;
+  width: 1440px;
+  height: 1px;
+  background: rgb(255 255 255 / 50%);
+}
+.siege-description,
+.siege-participation-copy {
+  position: absolute;
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 33px;
+  letter-spacing: -2px;
+  word-spacing: 2px;
+  text-align: center;
+  white-space: nowrap;
+}
+.siege-description {
+  left: 216px;
+  top: 410px;
+  width: 1007px;
+}
+.siege-participation {
+  position: absolute;
+  left: 59px;
+  top: 628px;
+  width: 1328px;
+}
+.siege-participation-copy {
+  left: 12px;
+  top: 0;
+  width: 1298px;
+}
+.siege-participation-table {
+  position: absolute;
+  left: 0;
+  top: 166px;
+  width: 1328px;
+  height: 135px;
+  object-fit: fill;
+}
+.siege-next {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 24px;
+  border: 1px solid #95764b;
+  color: #e2c391;
+  background: #171717;
+  font-size: 16px;
+  white-space: nowrap;
+}
+.siege-next:hover {
+  background: #29241d;
+}
+@media (max-width: 1439px) {
+  .siege-description,
+  .siege-participation {
+    left: calc((1440px - 100vw) / 2 + 36px);
+    width: calc(100vw - 72px);
+  }
+  .siege-description {
+    white-space: normal;
+  }
+  .siege-participation-copy {
+    position: static;
+    width: 100%;
+    white-space: normal;
+  }
+  .siege-participation-table {
+    position: static;
+    width: 100%;
+    height: auto;
+    margin-top: 34px;
+  }
+}
+@media (max-width: 1200px) {
+  .siege-page .navigation {
+    margin-left: 24px;
+  }
+  .siege-page .nav-list {
+    gap: clamp(16px, 3vw, 36px);
+  }
+  .siege-page .header-actions {
+    width: auto;
+    gap: 12px;
+  }
+}
+@media (max-width: 1023px) {
+  .siege-page > .header {
+    display: grid;
+    grid-template-columns: 74px minmax(0, 1fr);
+    height: 112px;
+  }
+  .siege-page .logo {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .siege-page .logo-image {
+    width: 56px;
+    height: 56px;
+  }
+  .siege-page .header-actions {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+    gap: 8px;
+  }
+  .siege-page .download-button {
+    width: 100px;
+    height: 56px;
+    margin-left: 0;
+    font-size: 16px;
+  }
+  .siege-page .navigation {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    width: 100%;
+    margin: 0;
+    padding: 0 16px;
+  }
+  .siege-page .nav-list {
+    justify-content: space-between;
+    gap: 0;
+  }
+  .siege-page .nav-link {
+    height: 56px;
+    padding-top: 18px;
+  }
+  .siege-intro .siege-canvas {
+    padding-top: 136px;
+  }
+  .siege-detail {
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+  }
+  .siege-detail .siege-canvas {
+    width: 100%;
+    margin: 0;
+    padding-bottom: 48px;
+  }
+  .siege-next {
+    position: static;
+    display: block;
+    width: fit-content;
+    margin: 32px auto 0;
+    transform: none;
+  }
+  .siege-banner {
+    width: 100%;
+    height: 240px;
+  }
+  .siege-detail-title {
+    position: relative;
+    left: auto;
+    top: auto;
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 240px;
+    font-size: clamp(32px, 5vw, 48px);
+  }
+  .siege-detail-title::before {
+    left: 0;
+    top: 64px;
+    width: 100%;
+  }
+  .siege-description,
+  .siege-participation {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: auto;
+    margin: 40px 24px 0;
+  }
+  .siege-description,
+  .siege-participation-copy {
+    font-size: clamp(16px, 2.4vw, 22px);
+    line-height: 1.7;
+    letter-spacing: -0.04em;
+    word-break: keep-all;
+  }
+}
+@media (max-width: 600px) {
+  .siege-title,
+  .siege-summary {
+    text-align: center;
+  }
+  .siege-intro .siege-canvas::after {
+    background: rgb(0 0 0 / 45%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .siege-document {
+    scroll-behavior: auto;
+  }
+}
