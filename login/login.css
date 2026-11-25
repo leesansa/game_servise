@@ -177,6 +177,10 @@ img {
   transform: translateX(-50%);
   transition: left 0.3s ease;
 }
+/* 로그인 화면은 메뉴에 없는 화면이라, 마우스나 키보드로 고를 때만 선택바를 보여 줍니다. */
+.nav-list:not(:has(.nav-link.active, > li:hover, > li:focus-within))::before {
+  visibility: hidden;
+}
 /*------------------------------상단 선택바----------------------------------*/
 /* 마우스 선택 → 키보드 선택 → 현재 페이지 순서로 장식선 위치를 정합니다.
    첫 번째 메뉴(소식)는 위의 기본값을 사용합니다. */
